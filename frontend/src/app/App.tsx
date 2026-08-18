@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, FormEvent, ReactNode } from "react";
 import { ImageWithFallback } from "@/app/components/media/ImageWithFallback";
+import { WhatsAppButton } from "@/app/components/WhatsAppButton";
 import ceoPic from "@/imports/image.png";
 import sovaImg1 from "@/imports/image-1.png";
 import sovaImg2 from "@/imports/image-2.png";
@@ -591,7 +592,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
           <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-8">
             (Johor Bahru · Kuala Lumpur, Malaysia)
           </div>
-          <h1 className="font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2)", letterSpacing: "-0.015em" }}>
+          <h1 className="font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2 - 8px)", letterSpacing: "-0.015em" }}>
             Applied AI.
             <br />
             <span style={{ background: GRAD, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
@@ -615,7 +616,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>The Impact</Label></FadeUp>
           <TextBlockReveal blockColor="#2d2d2d" duration={920} className="mb-16">
-            <h2 className="font-black text-white leading-tight max-w-4xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 4.8)", lineHeight: 1.08 }}>
+            <h2 className="font-black text-white leading-tight max-w-4xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 4.8 - 2px)", lineHeight: 1.08 }}>
               Most organisations aren't lacking technology — they're struggling with execution. SOVA builds the connective layer that turns investment into measurable impact.
             </h2>
           </TextBlockReveal>
@@ -631,12 +632,6 @@ function HomePage({ go }: { go: (p: Page) => void }) {
           </div>
         </div>
       </section>
-
-      {/* ── STATEMENT 1 ───────────────────────────────────────── */}
-      <Statement lines={[
-        "Most organisations are not lacking technology.",
-        "They are struggling with execution.",
-      ]} />
 
       {/* ── WHO WE ARE ────────────────────────────────────────── */}
       <section className="bg-[#111111] py-24 md:py-36 px-6 md:px-16">
@@ -737,12 +732,6 @@ function HomePage({ go }: { go: (p: Page) => void }) {
           </div>
         </div>
       </section>
-
-      {/* ── STATEMENT 2 ───────────────────────────────────────── */}
-      <Statement lines={[
-        "Fix the fundamentals. Build the connective layer.",
-        "Then scale — without friction.",
-      ]} />
 
       {/* ── PARTNERS ──────────────────────────────────────────── */}
       <section className="bg-[#111111] py-24 md:py-32">
@@ -1325,6 +1314,7 @@ export default function App() {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen">
+      <WhatsAppButton />
       <Navbar page={page} go={go} />
       <div className="transition-opacity duration-150" style={{ opacity: visible ? 1 : 0 }}>
         {page === "home"     && <HomePage     go={go} />}
