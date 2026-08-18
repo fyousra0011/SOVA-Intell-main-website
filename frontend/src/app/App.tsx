@@ -224,10 +224,10 @@ function ImpactSection() {
   return (
     <div ref={wrapperRef} style={{ height: "180vh" }} className="relative">
       <div className="sticky top-0 h-screen bg-[#111111] border-t border-b border-[#1a1a1a]">
-        <div className="h-full max-w-7xl mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-0 items-center">
+        <div className="mobile-impact-shell h-full max-w-7xl mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-0 items-center">
 
           {/* ── Left column ── */}
-          <div className="py-16 lg:py-0 lg:pr-8">
+          <div className="mobile-impact-copy py-16 lg:py-0 lg:pr-8">
             <FadeUp once>
               <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-10">
                 (The Turning Point)
@@ -235,7 +235,7 @@ function ImpactSection() {
             </FadeUp>
 
             {/* Layered text shifted ~32px right of its natural start */}
-            <div className="mb-10" style={{ paddingLeft: 32 }}>
+            <div className="mobile-impact-layered mb-10" style={{ paddingLeft: 32 }}>
               <LayeredText textProgress={Math.max(0, Math.min(1, (scrollProgress - 0.05) / 0.8))} />
             </div>
 
@@ -265,12 +265,12 @@ function ImpactSection() {
           </div>
 
           {/* ── Right column: mosaic sits flush right ── */}
-          <div className="hidden lg:flex justify-end items-center h-full">
+          <div className="mobile-impact-art hidden lg:flex justify-end items-center h-full">
             <ImageMosaic scrollProgress={scrollProgress} />
           </div>
 
           {/* Mobile */}
-          <div className="flex lg:hidden justify-center pb-16">
+          <div className="mobile-impact-art-mobile flex lg:hidden justify-center pb-16">
             <ImageMosaic scrollProgress={scrollProgress} />
           </div>
         </div>
@@ -325,13 +325,13 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
+      className="sova-loading-shell fixed inset-0 z-[100] bg-black flex items-center justify-center"
       style={{ opacity: phase === 3 ? 0 : 1, transition: "opacity 0.75s ease", pointerEvents: phase === 3 ? "none" : "all", fontFamily: DISPLAY }}
     >
       <div className="flex items-center">
 
         {/* ── SOVA — LEFT of the centre line ── */}
-        <div style={{
+        <div className="sova-loading-sova" style={{
           opacity:    phase >= 2 ? 1 : 0,
           // starts just right of its final position (near the line) → slides left to final
           transform:  `translateX(${phase >= 2 ? 0 : 36}px)`,
@@ -355,7 +355,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
         }} />
 
         {/* ── Intelligence — RIGHT of the centre line ── */}
-        <div style={{
+        <div className="sova-loading-intelligence" style={{
           opacity:    phase >= 2 ? 1 : 0,
           // starts just left of its final position (near the line) → slides right to final
           transform:  `translateX(${phase >= 2 ? 0 : -36}px)`,
@@ -450,13 +450,13 @@ function Label({ children }: { children: string }) {
   );
 }
 
-function Statement({ lines }: { lines: string[] }) {
+function Statement({ lines, className = "" }: { lines: string[]; className?: string }) {
   return (
-    <div className="px-6 md:px-16 py-20 md:py-28 border-y border-[#1a1a1a] bg-[#0a0a0a]">
+    <div className={`px-6 md:px-16 py-20 md:py-28 border-y border-[#1a1a1a] bg-[#0a0a0a] ${className}`}>
       <div className="max-w-5xl space-y-1">
         {lines.map((line, i) => (
           <TextBlockReveal key={i} blockColor="#2d2d2d" delay={i * 130} duration={880}>
-            <p style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: "calc(var(--sf) * 2.8)", lineHeight: 1.1, color: "white" }}>
+            <p className="statement-text" style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: "calc(var(--sf) * 2.8)", lineHeight: 1.1, color: "white" }}>
               {line}
             </p>
           </TextBlockReveal>
@@ -588,18 +588,18 @@ function HomePage({ go }: { go: (p: Page) => void }) {
       {/* ── HERO ──────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex flex-col bg-[#0a0a0a] overflow-hidden">
         <ParticleCanvas />
-        <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 md:px-16 pt-28 pb-0">
+        <div className="mobile-home-hero relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 md:px-16 pt-28 pb-0">
           <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-8">
             (Johor Bahru · Kuala Lumpur, Malaysia)
           </div>
-          <h1 className="font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2 - 8px)", letterSpacing: "-0.015em" }}>
+          <h1 className="mobile-hero-title font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2 - 8px)", letterSpacing: "-0.015em" }}>
             Applied AI.
             <br />
             <span style={{ background: GRAD, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Real-World<br />Execution.
             </span>
           </h1>
-          <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 max-w-md font-light">
+          <p className="mobile-hero-copy text-gray-400 text-base md:text-lg leading-relaxed mb-10 max-w-md font-light">
             Practical, inclusive AI for organisations that need more than strategy — they need results. Johor Bahru · Kuala Lumpur.
           </p>
           <div>
@@ -616,7 +616,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>The Impact</Label></FadeUp>
           <TextBlockReveal blockColor="#2d2d2d" duration={920} className="mb-16">
-            <h2 className="font-black text-white leading-tight max-w-4xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 4.8 - 2px)", lineHeight: 1.08 }}>
+            <h2 className="mobile-impact-title font-black text-white leading-tight max-w-4xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 4.8 - 2px)", lineHeight: 1.08 }}>
               Most organisations aren't lacking technology — they're struggling with execution. SOVA builds the connective layer that turns investment into measurable impact.
             </h2>
           </TextBlockReveal>
@@ -634,7 +634,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
       </section>
 
       {/* ── WHO WE ARE ────────────────────────────────────────── */}
-      <section className="bg-[#111111] py-24 md:py-36 px-6 md:px-16">
+      <section className="mobile-section bg-[#111111] py-24 md:py-36 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>Who We Are</Label></FadeUp>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -883,8 +883,8 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <section className="py-24 px-6 md:px-16 bg-[#111111]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section className="mobile-section py-24 px-6 md:px-16 bg-[#111111]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 mobile-stack-grid">
           <div>
             <FadeUp><Label>Our Mission</Label></FadeUp>
             <FadeUp delay={100}><p className="text-gray-200 text-base md:text-lg leading-relaxed mb-5">SOVA Intelligence (M) Sdn Bhd (1651222-H) was built around one operational truth: most organisations are not lacking technology — they are struggling with execution. Manual reporting, disconnected systems, and fragmented workflows create costly friction long before AI can deliver value.</p></FadeUp>
@@ -908,10 +908,10 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <section className="py-24 px-6 md:px-16 bg-[#0a0a0a]">
+      <section className="mobile-section py-24 px-6 md:px-16 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>Leadership</Label></FadeUp>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start mobile-stack-grid">
             <FadeUp distance={16}>
               <div className="rounded-xl overflow-hidden" style={{ minHeight: 360 }}>
                 <ImageWithFallback
@@ -939,15 +939,15 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <Statement lines={[
+      <Statement className="mobile-statement" lines={[
         "From strategy to deployment — we stand beside",
         "our partners at every stage of execution.",
       ]} />
 
-      <section className="py-24 px-6 md:px-16 bg-[#111111]">
+      <section className="mobile-section py-24 px-6 md:px-16 bg-[#111111]">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>SOVA Rise™</Label></FadeUp>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mobile-stack-grid">
             <div>
               <TextBlockReveal blockColor="#2d2d2d" duration={880} className="mb-6">
                 <h2 className="font-black text-white" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.25)" }}>AI upskilling built for real-world execution.</h2>
@@ -989,7 +989,7 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <section className="py-24 px-6 md:px-16 bg-[#0a0a0a]">
+      <section className="mobile-section py-24 px-6 md:px-16 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>International Partnerships</Label></FadeUp>
           <FadeUp delay={80}><h2 className="font-black text-white mb-12 max-w-2xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.25)" }}>Building bridges between Malaysian AI and the world.</h2></FadeUp>
@@ -1010,7 +1010,7 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <section className="py-24 px-6 md:px-16 border-t border-[#1a1a1a]">
+      <section className="mobile-section py-24 px-6 md:px-16 border-t border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8">
           <FadeUp><h2 className="font-black text-white" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 2.75)" }}>Ready to start your AI transformation?</h2></FadeUp>
           <FadeUp delay={150}><button onClick={() => go("rsvp")} className="flex-shrink-0 px-8 py-4 rounded-full font-bold text-sm uppercase tracking-[0.14em] text-white hover:opacity-90 transition-opacity" style={{ background: GRAD }}>Get in Touch</button></FadeUp>
@@ -1035,7 +1035,7 @@ const FULL_SERVICES = [
 function ServicesPage({ go }: { go: (p: Page) => void }) {
   return (
     <div className="bg-[#0a0a0a] pt-16" style={{ fontFamily: BODY }}>
-      <section className="py-24 md:py-36 px-6 md:px-16 border-b border-[#1a1a1a]">
+      <section className="mobile-section py-24 md:py-36 px-6 md:px-16 border-b border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>What We Do</Label></FadeUp>
           <TextBlockReveal blockColor="#2d2d2d" duration={1000} className="mb-6">
@@ -1100,7 +1100,7 @@ const SPONSOR_TIERS = [
 function SponsorsPage({ go }: { go: (p: Page) => void }) {
   return (
     <div className="bg-[#0a0a0a] pt-16" style={{ fontFamily: BODY }}>
-      <section className="py-24 md:py-32 px-6 md:px-16 border-b border-[#1a1a1a]">
+      <section className="mobile-section py-24 md:py-32 px-6 md:px-16 border-b border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>Our Sponsors</Label></FadeUp>
           <TextBlockReveal blockColor="#2d2d2d" duration={1000} className="mb-16">
@@ -1144,12 +1144,12 @@ function SponsorsPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <Statement lines={[
+      <Statement className="mobile-statement" lines={[
         "At SOVA, we translate your growth, priority,",
         "and focus into measurable impact.",
       ]} />
 
-      <section className="py-24 md:py-32 px-6 md:px-16 bg-[#111111]">
+      <section className="mobile-section py-24 md:py-32 px-6 md:px-16 bg-[#111111]">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>Become a Sponsor</Label></FadeUp>
           <FadeUp delay={80}><h2 className="font-black text-white mb-14" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.5)" }}>Why partner with SOVA?</h2></FadeUp>
@@ -1226,7 +1226,7 @@ function RSVPPage() {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen pt-16" style={{ fontFamily: BODY }}>
-      <div className="max-w-3xl mx-auto px-6 py-24">
+      <div className="mobile-section max-w-3xl mx-auto px-6 py-24">
         <FadeUp><Label>Get in Touch</Label></FadeUp>
         <TextBlockReveal blockColor="#2d2d2d" duration={1000} className="mb-4">
           <h1 className="font-black text-white leading-none" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 6.25)", lineHeight: 1 }}>
@@ -1314,6 +1314,102 @@ export default function App() {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen">
+      <style>{`
+        @media (max-width: 768px) {
+          html, body {
+            overflow-x: hidden;
+          }
+
+          .mobile-section {
+            padding-top: 4.5rem !important;
+            padding-bottom: 4.5rem !important;
+          }
+
+          .mobile-stack-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+
+          .mobile-home-hero {
+            padding-top: 6.5rem !important;
+          }
+
+          .mobile-hero-title {
+            font-size: clamp(3.1rem, 16vw, 5.2rem) !important;
+            line-height: 0.9 !important;
+            letter-spacing: -0.04em !important;
+          }
+
+          .mobile-hero-copy {
+            font-size: 0.96rem !important;
+            max-width: 100% !important;
+          }
+
+          .mobile-impact-title {
+            font-size: clamp(2.2rem, 8vw, 3.2rem) !important;
+            line-height: 1.04 !important;
+          }
+
+          .mobile-impact-shell {
+            height: auto !important;
+          }
+
+          .mobile-impact-copy {
+            padding-top: 4.25rem !important;
+            padding-bottom: 1.25rem !important;
+          }
+
+          .mobile-impact-layered {
+            margin-bottom: 1.5rem !important;
+            padding-left: 0 !important;
+          }
+
+          .mobile-impact-layered ul {
+            margin: 0 !important;
+            align-items: center !important;
+          }
+
+          .mobile-impact-layered li {
+            transform: none !important;
+          }
+
+          .mobile-impact-layered li > div {
+            transform: none !important;
+          }
+
+          .mobile-impact-layered p {
+            text-align: center !important;
+            width: 100% !important;
+            font-size: clamp(2.1rem, 9vw, 3.6rem) !important;
+            letter-spacing: -0.03em !important;
+          }
+
+          .mobile-impact-art,
+          .mobile-impact-art-mobile {
+            display: none !important;
+          }
+
+          .mobile-statement .statement-text {
+            font-size: clamp(2rem, 9vw, 3.2rem) !important;
+            line-height: 1.08 !important;
+          }
+
+          .sova-loading-shell {
+            padding: 0 1.5rem !important;
+          }
+
+          .sova-loading-sova {
+            font-size: clamp(2.8rem, 15vw, 4.5rem) !important;
+            padding-right: 0.8rem !important;
+          }
+
+          .sova-loading-intelligence {
+            font-size: clamp(0.8rem, 3vw, 1.1rem) !important;
+            padding-left: 0.8rem !important;
+            letter-spacing: 0.18em !important;
+          }
+        }
+      `}</style>
       <WhatsAppButton />
       <Navbar page={page} go={go} />
       <div className="transition-opacity duration-150" style={{ opacity: visible ? 1 : 0 }}>
