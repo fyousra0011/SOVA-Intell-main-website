@@ -3,7 +3,7 @@
   "installCommand": "npm --prefix frontend install",
   "outputDirectory": "frontend/dist",
   "rewrites": [
-    {
+    { 
       "source": "/((?!api(?:/|$)).*)",
       "destination": "/index.html"
     }
