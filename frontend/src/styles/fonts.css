@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+/* ─── Fluid Type Scaling System ──────────────────────────────────────────── */
+:root {
+  --su: 16;
+  --sc-ideal: 1440;
+  --sc-min:   992px;
+  --sc-max:   2560px;
+  --sc: clamp(var(--sc-min), 100vw, var(--sc-max));
+  --sf: calc(var(--sc) / (var(--sc-ideal) / var(--su)));
+}
+@media screen and (max-width: 991px) { :root { --sc-ideal: 834; --sc-min: 768px;  --sc-max: 991px; } }
+@media screen and (max-width: 767px) { :root { --sc-ideal: 550; --sc-min: 480px;  --sc-max: 767px; } }
+@media screen and (max-width: 479px) { :root { --sc-ideal: 402; --sc-min: 320px;  --sc-max: 479px; } }
+
+/* ─── Ticker ─────────────────────────────────────────────────────────────── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── Text Block Wipe ────────────────────────────────────────────────────── */
+@keyframes blockWipe {
+  0%   { clip-path: inset(0 100% 0 0); }
+  42%  { clip-path: inset(0 0%   0 0); }
+  58%  { clip-path: inset(0 0%   0 0); }
+  100% { clip-path: inset(0 0 0 100%); }
+}
+
+/* ─── Clip reveal upward ─────────────────────────────────────────────────── */
+@keyframes clipRevealUp {
+  from { clip-path: inset(100% 0 0 0); }
+  to   { clip-path: inset(0%   0 0 0); }
+}
+
+/* ─── Horizontal line draw ───────────────────────────────────────────────── */
+@keyframes borderDraw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ─── Stat number slide up ───────────────────────────────────────────────── */
+@keyframes numSlide {
+  from { transform: translateY(60%); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+/* ─── Accent pulse ───────────────────────────────────────────────────────── */
+@keyframes accentPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.9; }
+}
+
+/* ─── Scan line sweep ────────────────────────────────────────────────────── */
+@keyframes scanLine {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(500%); opacity: 0; }
+}

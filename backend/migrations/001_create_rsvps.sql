@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS rsvps (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(254) NOT NULL,
+  phone VARCHAR(40),
+  organization VARCHAR(160) NOT NULL,
+  job_title VARCHAR(120) NOT NULL,
+  query_type VARCHAR(100) NOT NULL,
+  message VARCHAR(2000),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS rsvps_created_at_idx ON rsvps (created_at DESC);
+CREATE TABLE IF NOT EXISTS rsvp_rate_limits (
+  key TEXT PRIMARY KEY,
+  hits INTEGER NOT NULL,
+  expires_at TIMESTAMPTZ NOT NULL
+);
