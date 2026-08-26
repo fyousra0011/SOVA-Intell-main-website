@@ -1,4 +1,4 @@
-{
+{ 
   "buildCommand": "npm --prefix frontend run build",
   "installCommand": "npm install --prefix frontend && npm install --prefix backend",
   "outputDirectory": "frontend/dist",
@@ -9,3 +9,4 @@
     }
   ]
 }
+
