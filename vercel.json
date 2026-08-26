@@ -1,6 +1,6 @@
-{ 
+{
   "buildCommand": "npm --prefix frontend run build",
-  "installCommand": "npm install --prefix frontend && npm install --prefix backend",
+  "installCommand": "npm install --prefix frontend --include=dev && npm install --prefix backend",
   "outputDirectory": "frontend/dist",
   "rewrites": [
     {
@@ -9,4 +9,3 @@
     }
   ]
 }
-
