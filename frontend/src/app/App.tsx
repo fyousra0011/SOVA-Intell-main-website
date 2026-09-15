@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useRef, FormEvent, ReactNode } from "react";
 import { ImageWithFallback } from "@/app/components/media/ImageWithFallback";
-import { WhatsAppButton } from "@/app/components/WhatsAppButton";
-import ceoPic from "@/imports/image.png";
+import sovaLogo from "@/imports/sova.jpeg";
+import salasiahPic from "@/imports/salasiah.jpeg";
+import fadillahPic from "@/imports/fadillah.jpeg";
+import waynePic from "@/imports/wayne.jpeg";
 import sovaImg1 from "@/imports/image-1.png";
 import sovaImg2 from "@/imports/image-2.png";
 import sovaImg3 from "@/imports/image-3.png";
 import {
   Menu, X, ArrowRight, Linkedin, Instagram,
-  Brain, Zap, Users, BarChart3, GraduationCap,
-  Globe, Building2, CheckCircle, ChevronRight,
-  Send, Shield, TrendingUp, Cpu,
+  Brain, Zap, BarChart3,
+  Globe, CheckCircle, ChevronRight,
+  Send, Shield, Cpu,
 } from "lucide-react";
 
-type Page = "home" | "about" | "services" | "sponsors" | "rsvp";
+type Page = "home" | "about" | "services" | "rsvp";
 
 const DISPLAY = "'Barlow Condensed', sans-serif";
 const BODY    = "'DM Sans', sans-serif";
@@ -180,16 +182,16 @@ function ImageMosaic({ scrollProgress: p }: { scrollProgress: number }) {
       {/* Left column — starts 40px lower */}
       <div style={{ ...col, width: 188, paddingTop: 40 }}>
         <div style={cell(268, true)}>
-          <img src={sovaImg1} alt="SOVA Intelligence — government engagement" draggable={false} style={imgStyle(18)} />
+          <img src={sovaImg1} alt="SOVA — government engagement" draggable={false} style={imgStyle(18)} />
         </div>
         <div style={cell(148)}>
-          <img src={sovaImg2} alt="SOVA Intelligence — strategic meeting" draggable={false} style={imgStyle(28)} />
+          <img src={sovaImg2} alt="SOVA — strategic meeting" draggable={false} style={imgStyle(28)} />
         </div>
       </div>
       {/* Right column — starts flush top */}
       <div style={{ ...col, width: 188 }}>
         <div style={cell(176)}>
-          <img src={sovaImg3} alt="SOVA Intelligence — Asia Pacific Sustainability Conference" draggable={false} style={imgStyle(22)} />
+          <img src={sovaImg3} alt="SOVA — Asia Pacific Sustainability Conference" draggable={false} style={imgStyle(22)} />
         </div>
         <div style={cell(252, true)}>
           <img src={DECK_IMAGES[3].url} alt={DECK_IMAGES[3].alt} draggable={false} style={imgStyle(14)} />
@@ -224,10 +226,10 @@ function ImpactSection() {
   return (
     <div ref={wrapperRef} style={{ height: "180vh" }} className="relative">
       <div className="sticky top-0 h-screen bg-[#111111] border-t border-b border-[#1a1a1a]">
-        <div className="mobile-impact-shell h-full max-w-7xl mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-0 items-center">
+        <div className="h-full max-w-7xl mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-0 items-center">
 
           {/* ── Left column ── */}
-          <div className="mobile-impact-copy py-16 lg:py-0 lg:pr-8">
+          <div className="py-16 lg:py-0 lg:pr-8">
             <FadeUp once>
               <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-10">
                 (The Turning Point)
@@ -235,7 +237,7 @@ function ImpactSection() {
             </FadeUp>
 
             {/* Layered text shifted ~32px right of its natural start */}
-            <div className="mobile-impact-layered mb-10" style={{ paddingLeft: 32 }}>
+            <div className="mb-10" style={{ paddingLeft: 32 }}>
               <LayeredText textProgress={Math.max(0, Math.min(1, (scrollProgress - 0.05) / 0.8))} />
             </div>
 
@@ -265,12 +267,12 @@ function ImpactSection() {
           </div>
 
           {/* ── Right column: mosaic sits flush right ── */}
-          <div className="mobile-impact-art hidden lg:flex justify-end items-center h-full">
+          <div className="hidden lg:flex justify-end items-center h-full">
             <ImageMosaic scrollProgress={scrollProgress} />
           </div>
 
           {/* Mobile */}
-          <div className="mobile-impact-art-mobile flex lg:hidden justify-center pb-16">
+          <div className="flex lg:hidden justify-center pb-16">
             <ImageMosaic scrollProgress={scrollProgress} />
           </div>
         </div>
@@ -291,19 +293,19 @@ function ImpactSection() {
 // LOGO
 // ══════════════════════════════════════════════════════════════
 function SovaLogo({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
-  const szMap = {
-    sm: { main: "text-lg",  sub: "text-[10px]", line: "h-4" },
-    md: { main: "text-xl",  sub: "text-[11px]", line: "h-5" },
-    lg: { main: "text-3xl", sub: "text-sm",     line: "h-7" },
-  };
-  const s = szMap[size];
+  const hMap = { sm: 20, md: 24, lg: 32 };
+  const subSz = { sm: "text-[10px]", md: "text-[11px]", lg: "text-sm" };
+  const h = hMap[size];
   return (
-    <div className="flex items-center text-white select-none">
-      <span className={`font-black tracking-tight ${s.main}`} style={{ fontFamily: DISPLAY, letterSpacing: "-0.01em" }}>
-        SOVA
-      </span>
-      <div className={`w-px ${s.line} bg-white/35 mx-2.5 flex-shrink-0`} />
-      <span className={`font-light uppercase tracking-[0.18em] ${s.sub}`} style={{ fontFamily: DISPLAY }}>
+    <div className="flex items-center select-none">
+      <img
+        src={sovaLogo}
+        alt="SOVA"
+        draggable={false}
+        style={{ height: h, width: "auto", mixBlendMode: "screen" as const, display: "block" }}
+      />
+      <div className="w-px bg-white/35 mx-2.5 flex-shrink-0" style={{ height: Math.round(h * 0.72) }} />
+      <span className={`text-white font-light uppercase tracking-[0.18em] ${subSz[size]}`} style={{ fontFamily: DISPLAY }}>
         Intelligence
       </span>
     </div>
@@ -325,25 +327,24 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      className="sova-loading-shell fixed inset-0 z-[100] bg-black flex items-center justify-center"
+      className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
       style={{ opacity: phase === 3 ? 0 : 1, transition: "opacity 0.75s ease", pointerEvents: phase === 3 ? "none" : "all", fontFamily: DISPLAY }}
     >
       <div className="flex items-center">
 
         {/* ── SOVA — LEFT of the centre line ── */}
-        <div className="sova-loading-sova" style={{
+        <div style={{
           opacity:    phase >= 2 ? 1 : 0,
-          // starts just right of its final position (near the line) → slides left to final
           transform:  `translateX(${phase >= 2 ? 0 : 36}px)`,
           transition: "opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)",
-          fontWeight: 900,
-          fontSize:   "clamp(52px, 10vw, 90px)",
-          letterSpacing: "-0.015em",
-          color:      "white",
           paddingRight: 28,
-          lineHeight: 1,
         }}>
-          SOVA
+          <img
+            src={sovaLogo}
+            alt="SOVA"
+            draggable={false}
+            style={{ height: "clamp(52px, 10vw, 90px)", width: "auto", mixBlendMode: "screen" as const, display: "block" }}
+          />
         </div>
 
         {/* Centre line */}
@@ -355,7 +356,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
         }} />
 
         {/* ── Intelligence — RIGHT of the centre line ── */}
-        <div className="sova-loading-intelligence" style={{
+        <div style={{
           opacity:    phase >= 2 ? 1 : 0,
           // starts just left of its final position (near the line) → slides right to final
           transform:  `translateX(${phase >= 2 ? 0 : -36}px)`,
@@ -450,13 +451,13 @@ function Label({ children }: { children: string }) {
   );
 }
 
-function Statement({ lines, className = "" }: { lines: string[]; className?: string }) {
+function Statement({ lines }: { lines: string[] }) {
   return (
-    <div className={`px-6 md:px-16 py-20 md:py-28 border-y border-[#1a1a1a] bg-[#0a0a0a] ${className}`}>
+    <div className="px-6 md:px-16 py-20 md:py-28 border-y border-[#1a1a1a] bg-[#0a0a0a]">
       <div className="max-w-5xl space-y-1">
         {lines.map((line, i) => (
           <TextBlockReveal key={i} blockColor="#2d2d2d" delay={i * 130} duration={880}>
-            <p className="statement-text" style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: "calc(var(--sf) * 2.8)", lineHeight: 1.1, color: "white" }}>
+            <p style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: "calc(var(--sf) * 2.8)", lineHeight: 1.1, color: "white" }}>
               {line}
             </p>
           </TextBlockReveal>
@@ -478,7 +479,7 @@ function Navbar({ page, go }: { page: Page; go: (p: Page) => void }) {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const links: [string, Page][] = [["About","about"],["Services","services"],["Sponsors","sponsors"]];
+  const links: [string, Page][] = [["About","about"],["Services","services"]];
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0a0a0a]/92 backdrop-blur-md border-b border-[#1a1a1a]" : ""}`}>
@@ -508,7 +509,7 @@ function Navbar({ page, go }: { page: Page; go: (p: Page) => void }) {
           <button onClick={() => { go("rsvp"); setOpen(false); }} className="text-left text-4xl font-black text-white uppercase tracking-tight hover:text-gray-300 transition-colors" style={{ fontFamily: DISPLAY }}>Contact</button>
         </div>
         <div className="mt-auto pb-10 border-t border-[#1a1a1a] pt-8">
-          <p className="text-gray-600 text-xs uppercase tracking-[0.2em]">admin@sovaintelligence.com</p>
+          <p className="text-gray-600 text-xs uppercase tracking-[0.2em]">Johor Bahru · Kuala Lumpur, Malaysia</p>
         </div>
       </div>
     </>
@@ -530,7 +531,7 @@ function Footer({ go }: { go: (p: Page) => void }) {
           <div>
             <p className="text-[10px] uppercase tracking-[0.32em] text-gray-700 mb-5">Navigate</p>
             <div className="flex flex-col gap-3">
-              {([["Home","home"],["About","about"],["Services","services"],["Sponsors","sponsors"],["Contact","rsvp"]] as [string,Page][]).map(([l,p]) => (
+              {([["Home","home"],["About","about"],["Services","services"],["Contact","rsvp"]] as [string,Page][]).map(([l,p]) => (
                 <button key={p} onClick={() => go(p)} className="text-sm text-gray-600 hover:text-white transition-colors text-left" style={{ fontFamily: BODY }}>{l}</button>
               ))}
             </div>
@@ -541,13 +542,11 @@ function Footer({ go }: { go: (p: Page) => void }) {
               <a href="#" className="text-gray-600 hover:text-white transition-colors p-1"><Linkedin size={18} /></a>
               <a href="#" className="text-gray-600 hover:text-white transition-colors p-1"><Instagram size={18} /></a>
             </div>
-            <p className="text-sm text-gray-600" style={{ fontFamily: BODY }}>admin@sovaintelligence.com</p>
-            <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: BODY }}>+6019-7738522</p>
-            <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: BODY }}>Johor Bahru · Kuala Lumpur, Malaysia</p>
+            <p className="text-sm text-gray-600" style={{ fontFamily: BODY }}>Johor Bahru · Kuala Lumpur, Malaysia</p>
           </div>
         </div>
         <div className="border-t border-[#1a1a1a] pt-6 flex flex-col md:flex-row justify-between items-center gap-2">
-          <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em]">© 2026 SOVA Intelligence. All rights reserved.</p>
+          <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em]">© 2026 SOVA. All rights reserved.</p>
           <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em]">Johor Bahru · Kuala Lumpur, Malaysia</p>
         </div>
       </div>
@@ -588,18 +587,18 @@ function HomePage({ go }: { go: (p: Page) => void }) {
       {/* ── HERO ──────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex flex-col bg-[#0a0a0a] overflow-hidden">
         <ParticleCanvas />
-        <div className="mobile-home-hero relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 md:px-16 pt-28 pb-0">
+        <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 md:px-16 pt-28 pb-0">
           <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-8">
             (Johor Bahru · Kuala Lumpur, Malaysia)
           </div>
-          <h1 className="mobile-hero-title font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2 - 8px)", letterSpacing: "-0.015em" }}>
+          <h1 className="font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2)", letterSpacing: "-0.015em" }}>
             Applied AI.
             <br />
             <span style={{ background: GRAD, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Real-World<br />Execution.
             </span>
           </h1>
-          <p className="mobile-hero-copy text-gray-400 text-base md:text-lg leading-relaxed mb-10 max-w-md font-light">
+          <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 max-w-md font-light">
             Practical, inclusive AI for organisations that need more than strategy — they need results. Johor Bahru · Kuala Lumpur.
           </p>
           <div>
@@ -616,7 +615,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>The Impact</Label></FadeUp>
           <TextBlockReveal blockColor="#2d2d2d" duration={920} className="mb-16">
-            <h2 className="mobile-impact-title font-black text-white leading-tight max-w-4xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 4.8 - 2px)", lineHeight: 1.08 }}>
+            <h2 className="font-black text-white leading-tight max-w-4xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 4.8)", lineHeight: 1.08 }}>
               Most organisations aren't lacking technology — they're struggling with execution. SOVA builds the connective layer that turns investment into measurable impact.
             </h2>
           </TextBlockReveal>
@@ -633,8 +632,14 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
+      {/* ── STATEMENT 1 ───────────────────────────────────────── */}
+      <Statement lines={[
+        "Most organisations are not lacking technology.",
+        "They are struggling with execution.",
+      ]} />
+
       {/* ── WHO WE ARE ────────────────────────────────────────── */}
-      <section className="mobile-section bg-[#111111] py-24 md:py-36 px-6 md:px-16">
+      <section className="bg-[#111111] py-24 md:py-36 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>Who We Are</Label></FadeUp>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -691,7 +696,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
               <iframe
                 style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
                 src="https://www.youtube.com/embed/_CR03OZaIrQ?si=9ZVh-cN3_qaeWQyG"
-                title="SOVA Intelligence — Our Story"
+                title="SOVA — Our Story"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
@@ -733,6 +738,12 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
+      {/* ── STATEMENT 2 ───────────────────────────────────────── */}
+      <Statement lines={[
+        "Fix the fundamentals. Build the connective layer.",
+        "Then scale — without friction.",
+      ]} />
+
       {/* ── PARTNERS ──────────────────────────────────────────── */}
       <section className="bg-[#111111] py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-16 mb-10">
@@ -763,7 +774,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
 
         <FadeUp delay={100} className="max-w-7xl mx-auto px-6 md:px-16 pt-10">
           <p className="text-gray-500 text-sm leading-relaxed max-w-2xl">
-            Through Memoranda of Understanding with leading government bodies, universities, and industry consortiums, SOVA Intelligence formalises its commitment to long-term, transformative AI partnerships across Malaysia and the region.
+            Through Memoranda of Understanding with leading government bodies, universities, and industry consortiums, SOVA formalises its commitment to long-term, transformative AI partnerships across Malaysia and the region.
           </p>
         </FadeUp>
       </section>
@@ -794,53 +805,6 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      {/* ── SPONSORS PREVIEW ──────────────────────────────────── */}
-      <section className="bg-[#111111] py-24 md:py-32 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <FadeUp><Label>Our Sponsors</Label></FadeUp>
-          <FadeUp delay={80}><h2 className="font-black text-white mb-12" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3)" }}>Partners who believe in Malaysia's AI future.</h2></FadeUp>
-          <FadeUp delay={160}>
-            <div className="mb-4">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-[#4F7DFF] mb-3">Title Sponsor</p>
-              <div className="bg-[#1a1a1a] border border-[#4F7DFF]/15 rounded-xl p-12 md:p-16 flex items-center justify-center">
-                <span className="text-gray-700 text-xs tracking-[0.25em] uppercase">Title Sponsor Logo</span>
-              </div>
-            </div>
-          </FadeUp>
-          <FadeUp delay={220}>
-            <div className="mb-4">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-yellow-700 mb-3">Gold Sponsors</p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {[1,2,3].map(i => (
-                  <div key={i} className="bg-[#1a1a1a] border border-yellow-900/20 rounded-xl p-10 flex items-center justify-center">
-                    <span className="text-gray-700 text-xs tracking-[0.2em] uppercase">Gold Sponsor {i}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </FadeUp>
-          <FadeUp delay={300}>
-            <div className="mb-12">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-gray-600 mb-3">Silver Sponsors</p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[1,2,3,4].map(i => (
-                  <div key={i} className="bg-[#161616] border border-[#222222] rounded-xl p-7 flex items-center justify-center">
-                    <span className="text-gray-700 text-[10px] tracking-[0.16em] uppercase">Silver {i}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </FadeUp>
-          <FadeUp delay={360}>
-            <div className="flex justify-center">
-              <button onClick={() => go("sponsors")} className="px-8 py-4 border border-white/20 text-white text-xs uppercase tracking-[0.2em] rounded-full hover:bg-white hover:text-black hover:border-white transition-all">
-                Become a Sponsor
-              </button>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
       {/* ── JOIN US ───────────────────────────────────────────── */}
       <section className="bg-[#0a0a0a] py-32 md:py-48 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
@@ -855,8 +819,8 @@ function HomePage({ go }: { go: (p: Page) => void }) {
               <button onClick={() => go("rsvp")} className="px-8 py-4 rounded-full font-bold text-sm uppercase tracking-[0.14em] text-white transition-opacity hover:opacity-90" style={{ background: GRAD }}>
                 Get in Touch
               </button>
-              <button onClick={() => go("sponsors")} className="px-8 py-4 rounded-full border border-white/25 text-white font-bold text-sm uppercase tracking-[0.14em] hover:bg-white hover:text-black hover:border-white transition-all">
-                Partner With Us
+              <button onClick={() => go("services")} className="px-8 py-4 rounded-full border border-white/25 text-white font-bold text-sm uppercase tracking-[0.14em] hover:bg-white hover:text-black hover:border-white transition-all">
+                Explore Services
               </button>
             </div>
           </FadeUp>
@@ -883,8 +847,8 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <section className="mobile-section py-24 px-6 md:px-16 bg-[#111111]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 mobile-stack-grid">
+      <section className="py-24 px-6 md:px-16 bg-[#111111]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
             <FadeUp><Label>Our Mission</Label></FadeUp>
             <FadeUp delay={100}><p className="text-gray-200 text-base md:text-lg leading-relaxed mb-5">SOVA Intelligence (M) Sdn Bhd (1651222-H) was built around one operational truth: most organisations are not lacking technology — they are struggling with execution. Manual reporting, disconnected systems, and fragmented workflows create costly friction long before AI can deliver value.</p></FadeUp>
@@ -908,46 +872,48 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <section className="mobile-section py-24 px-6 md:px-16 bg-[#0a0a0a]">
+      <section className="py-24 px-6 md:px-16 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>Leadership</Label></FadeUp>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start mobile-stack-grid">
-            <FadeUp distance={16}>
-              <div className="rounded-xl overflow-hidden" style={{ minHeight: 360 }}>
-                <ImageWithFallback
-                  src={ceoPic}
-                  alt="Dr. Salasiah Abbas — Chief Executive Officer, SOVA Intelligence"
-                  className="w-full h-full object-cover object-top"
-                  style={{ minHeight: 360, maxHeight: 480 }}
-                />
-              </div>
-            </FadeUp>
-            <div>
-              <TextBlockReveal blockColor="#2d2d2d" duration={800}>
-                <h2 className="font-black text-white mb-1" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.25)" }}>Dr. Salasiah Abbas</h2>
-              </TextBlockReveal>
-              <FadeUp delay={100}><p className="text-[#4F7DFF] text-xs uppercase tracking-[0.22em] mb-8">Chief Executive Officer</p></FadeUp>
-              {[
-                "Dr. Salasiah Abbas is the founding CEO of SOVA Intelligence, leading the company's mission to deliver practical, inclusive AI across Malaysia's enterprise and public sectors.",
-                "She has represented SOVA in the Entrepreneurs, Women & AI policy dialogue alongside KUSKOP representatives, and leads the Zhejiang Business Station ASEAN Headquarters technology transfer initiatives in Johor Bahru.",
-                "Her approach is grounded in execution — not just awareness. Every programme she builds is designed to move organisations from theoretical technology understanding into hands-on, measurable operational change.",
-              ].map((para, i) => (
-                <FadeUp key={i} delay={200 + i * 120}><p className="text-gray-400 text-sm leading-relaxed mb-4">{para}</p></FadeUp>
-              ))}
-            </div>
+
+          <div className="flex flex-col divide-y divide-[#1a1a1a]">
+            {[
+              { src: salasiahPic, name: "Dr. Salasiah Abbas",  role: "Chief Executive Officer",          alt: "Dr. Salasiah Abbas" },
+              { src: fadillahPic, name: "Fadillah Iskandar",   role: "Director of Technology Integration", alt: "Fadillah Iskandar" },
+              { src: waynePic,    name: "Wayne Yap",           role: "Director of International Business", alt: "Wayne Yap" },
+            ].map(({ src, name, role, alt }, i) => (
+              <FadeUp key={name} delay={i * 80} distance={32} className="py-20">
+                <div className="flex flex-col items-center text-center max-w-sm mx-auto">
+                  <div className="w-full rounded-2xl overflow-hidden mb-8" style={{ aspectRatio: "3/4" }}>
+                    <ImageWithFallback
+                      src={src}
+                      alt={alt}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <TextBlockReveal blockColor="#2d2d2d" duration={700}>
+                    <h2 className="font-black text-white" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 2.75)" }}>{name}</h2>
+                  </TextBlockReveal>
+                  <FadeUp delay={120}>
+                    <p className="text-[#4F7DFF] text-[10px] uppercase tracking-[0.28em] mt-2">{role}</p>
+                  </FadeUp>
+                </div>
+              </FadeUp>
+            ))}
           </div>
+
         </div>
       </section>
 
-      <Statement className="mobile-statement" lines={[
+      <Statement lines={[
         "From strategy to deployment — we stand beside",
         "our partners at every stage of execution.",
       ]} />
 
-      <section className="mobile-section py-24 px-6 md:px-16 bg-[#111111]">
+      <section className="py-24 px-6 md:px-16 bg-[#111111]">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>SOVA Rise™</Label></FadeUp>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mobile-stack-grid">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <TextBlockReveal blockColor="#2d2d2d" duration={880} className="mb-6">
                 <h2 className="font-black text-white" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.25)" }}>AI upskilling built for real-world execution.</h2>
@@ -989,7 +955,7 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <section className="mobile-section py-24 px-6 md:px-16 bg-[#0a0a0a]">
+      <section className="py-24 px-6 md:px-16 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>International Partnerships</Label></FadeUp>
           <FadeUp delay={80}><h2 className="font-black text-white mb-12 max-w-2xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.25)" }}>Building bridges between Malaysian AI and the world.</h2></FadeUp>
@@ -1010,7 +976,7 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <section className="mobile-section py-24 px-6 md:px-16 border-t border-[#1a1a1a]">
+      <section className="py-24 px-6 md:px-16 border-t border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8">
           <FadeUp><h2 className="font-black text-white" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 2.75)" }}>Ready to start your AI transformation?</h2></FadeUp>
           <FadeUp delay={150}><button onClick={() => go("rsvp")} className="flex-shrink-0 px-8 py-4 rounded-full font-bold text-sm uppercase tracking-[0.14em] text-white hover:opacity-90 transition-opacity" style={{ background: GRAD }}>Get in Touch</button></FadeUp>
@@ -1035,7 +1001,7 @@ const FULL_SERVICES = [
 function ServicesPage({ go }: { go: (p: Page) => void }) {
   return (
     <div className="bg-[#0a0a0a] pt-16" style={{ fontFamily: BODY }}>
-      <section className="mobile-section py-24 md:py-36 px-6 md:px-16 border-b border-[#1a1a1a]">
+      <section className="py-24 md:py-36 px-6 md:px-16 border-b border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>What We Do</Label></FadeUp>
           <TextBlockReveal blockColor="#2d2d2d" duration={1000} className="mb-6">
@@ -1088,119 +1054,10 @@ function ServicesPage({ go }: { go: (p: Page) => void }) {
 }
 
 // ══════════════════════════════════════════════════════════════
-// SPONSORS PAGE
-// ══════════════════════════════════════════════════════════════
-const SPONSOR_TIERS = [
-  { name: "Title Sponsor",      labelColor: "text-white",      borderColor: "border-[#4F7DFF]/30",   benefits: ["Exclusive naming rights to the partnership","Keynote speaking slot (20 minutes)","Premium exhibition position","Logo on all materials, press releases & digital channels","10 complimentary VIP passes","One-year SOVA Intelligence brand ambassador partnership","Post-initiative digital impact report","Private networking dinner with SOVA leadership"] },
-  { name: "Gold Sponsor",       labelColor: "text-yellow-400", borderColor: "border-yellow-800/30", benefits: ["Exhibition booth — standard location","Panel speaking opportunity (10 minutes)","Logo on event backdrop, website & programme","5 complimentary passes","Social media feature across SOVA channels","Post-initiative audience engagement report"] },
-  { name: "Silver Sponsor",     labelColor: "text-gray-300",   borderColor: "border-gray-600/20",   benefits: ["Logo on website and materials","2 complimentary passes","Social media mention","Brand acknowledgement at initiative launch"] },
-  { name: "Supporting Sponsor", labelColor: "text-gray-500",   borderColor: "border-gray-700/15",   benefits: ["Logo on SOVA website","1 complimentary pass","Brand acknowledgement in communications"] },
-];
-
-function SponsorsPage({ go }: { go: (p: Page) => void }) {
-  return (
-    <div className="bg-[#0a0a0a] pt-16" style={{ fontFamily: BODY }}>
-      <section className="mobile-section py-24 md:py-32 px-6 md:px-16 border-b border-[#1a1a1a]">
-        <div className="max-w-7xl mx-auto">
-          <FadeUp><Label>Our Sponsors</Label></FadeUp>
-          <TextBlockReveal blockColor="#2d2d2d" duration={1000} className="mb-16">
-            <h1 className="font-black text-white" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 5.6)", lineHeight: 1.05 }}>Organisations that believe<br />in Malaysia's AI future.</h1>
-          </TextBlockReveal>
-          {[
-            { label: "Title Sponsor",  labelColor: "text-[#4F7DFF]",  border: "border-[#4F7DFF]/15",     count: 1, large: true },
-            { label: "Gold Sponsors",  labelColor: "text-yellow-700", border: "border-yellow-900/15",    count: 3, large: false },
-          ].map(({ label, labelColor, border, count, large }, i) => (
-            <FadeUp key={label} delay={i * 100} className="mb-6">
-              <div>
-                <p className={`text-[10px] uppercase tracking-[0.3em] ${labelColor} mb-4`}>{label}</p>
-                {large ? (
-                  <div className={`bg-[#111111] border ${border} rounded-xl p-16 md:p-20 flex items-center justify-center`}>
-                    <span className="text-gray-700 text-xs tracking-[0.28em] uppercase">Title Sponsor Logo</span>
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    {Array.from({ length: count }, (_, j) => (
-                      <div key={j} className={`bg-[#111111] border ${border} rounded-xl p-10 flex items-center justify-center`} style={{ minHeight: 100 }}>
-                        <span className="text-gray-700 text-xs tracking-[0.2em] uppercase">Gold Sponsor {j + 1}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </FadeUp>
-          ))}
-          <FadeUp delay={200} className="mb-6">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-gray-600 mb-4">Silver Sponsors</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[1,2,3,4].map(i => <div key={i} className="bg-[#111111] border border-[#1e1e1e] rounded-xl p-8 flex items-center justify-center"><span className="text-gray-700 text-[10px] tracking-[0.18em] uppercase">Silver {i}</span></div>)}
-            </div>
-          </FadeUp>
-          <FadeUp delay={280}>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-gray-700 mb-4">Supporting Sponsors</p>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-              {[1,2,3,4,5,6].map(i => <div key={i} className="bg-[#0e0e0e] border border-[#181818] rounded-lg p-5 flex items-center justify-center"><span className="text-gray-800 text-[10px] uppercase tracking-[0.1em]">S{i}</span></div>)}
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
-      <Statement className="mobile-statement" lines={[
-        "At SOVA, we translate your growth, priority,",
-        "and focus into measurable impact.",
-      ]} />
-
-      <section className="mobile-section py-24 md:py-32 px-6 md:px-16 bg-[#111111]">
-        <div className="max-w-7xl mx-auto">
-          <FadeUp><Label>Become a Sponsor</Label></FadeUp>
-          <FadeUp delay={80}><h2 className="font-black text-white mb-14" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.5)" }}>Why partner with SOVA?</h2></FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            {[
-              { icon: Users,     title: "Decision-Makers",    desc: "Every partner is a government official, industry leader, academic, or senior executive with real budget authority and transformation mandates." },
-              { icon: TrendingUp,title: "National Reach",     desc: "SOVA's work is covered by leading Malaysian media, ensuring your brand reaches far beyond direct engagements." },
-              { icon: Cpu,       title: "MOU Partnerships",   desc: "Be associated with Malaysia's most significant AI partnership initiatives — moments that define the country's AI trajectory." },
-              { icon: Shield,    title: "Long-term Impact",   desc: "SOVA Intelligence's partnerships are built for the long term. Your sponsorship signals genuine commitment to Malaysia's AI future." },
-            ].map(({ icon: Icon, title, desc }, i) => (
-              <FadeUp key={title} delay={i * 80} distance={16}>
-                <div className="flex gap-5 items-start">
-                  <div className="w-9 h-9 rounded-md bg-[#4F7DFF]/10 flex items-center justify-center flex-shrink-0 mt-0.5"><Icon size={16} className="text-[#4F7DFF]" /></div>
-                  <div><h3 className="text-white font-bold text-sm mb-2">{title}</h3><p className="text-gray-500 text-sm leading-relaxed">{desc}</p></div>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-          <FadeUp><h3 className="font-black text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 1.875)" }}>Sponsorship Tiers</h3></FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {SPONSOR_TIERS.map(({ name, labelColor, borderColor, benefits }, i) => (
-              <FadeUp key={name} delay={i * 90} distance={18}>
-                <div className={`bg-[#1a1a1a] border ${borderColor} rounded-xl p-8 h-full flex flex-col`}>
-                  <h4 className={`font-black text-lg mb-6 ${labelColor}`} style={{ fontFamily: DISPLAY }}>{name}</h4>
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {benefits.map((b, j) => (
-                      <li key={j} className="flex gap-3 items-start">
-                        <div className="w-1 h-1 rounded-full bg-[#4F7DFF] mt-2 flex-shrink-0" />
-                        <span className="text-gray-400 text-sm leading-relaxed">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button onClick={() => go("rsvp")} className="w-full py-3 border border-white/15 text-white text-xs uppercase tracking-[0.22em] rounded-full hover:bg-white hover:text-black hover:border-white transition-all">Enquire</button>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-          <FadeUp delay={200} className="mt-14 text-center">
-            <button onClick={() => go("rsvp")} className="px-10 py-5 rounded-full font-bold text-sm uppercase tracking-[0.15em] text-white hover:opacity-90 transition-opacity" style={{ background: GRAD }}>Enquire About Sponsorship</button>
-          </FadeUp>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-// ══════════════════════════════════════════════════════════════
 // CONTACT / RSVP PAGE
 // ══════════════════════════════════════════════════════════════
 const QUERY_TYPES = [
-  "Partnership Opportunity","Sponsorship Enquiry","SOVA Rise™ Programme",
+  "Partnership Opportunity","SOVA Rise™ Programme",
   "AI Consulting","Government Solutions","Media & Press","General Enquiry",
 ];
 
@@ -1226,14 +1083,14 @@ function RSVPPage() {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen pt-16" style={{ fontFamily: BODY }}>
-      <div className="mobile-section max-w-3xl mx-auto px-6 py-24">
+      <div className="max-w-3xl mx-auto px-6 py-24">
         <FadeUp><Label>Get in Touch</Label></FadeUp>
         <TextBlockReveal blockColor="#2d2d2d" duration={1000} className="mb-4">
           <h1 className="font-black text-white leading-none" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 6.25)", lineHeight: 1 }}>
             Let us know<br />anything.
           </h1>
         </TextBlockReveal>
-        <FadeUp delay={150}><p className="text-gray-500 mb-16 leading-relaxed text-sm md:text-base max-w-md">Whether you're exploring a partnership, sponsorship, or simply want to learn more about SOVA Intelligence — we'd love to hear from you.</p></FadeUp>
+        <FadeUp delay={150}><p className="text-gray-500 mb-16 leading-relaxed text-sm md:text-base max-w-md">Whether you're exploring a partnership or simply want to learn more about SOVA — we'd love to hear from you.</p></FadeUp>
 
         <form onSubmit={handleSubmit} className="border-t border-[#1a1a1a]">
           {[
@@ -1283,7 +1140,7 @@ function RSVPPage() {
           <FadeUp delay={420}>
             <div className="pt-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
               <p className="text-gray-600 text-xs leading-relaxed max-w-xs">
-                The SOVA team will be in touch within 48 hours. For urgent matters: admin@sovaintelligence.com · +6019-7738522
+                The SOVA team will be in touch within 48 hours.
               </p>
               <button type="submit" className="flex-shrink-0 flex items-center gap-3 px-8 py-4 rounded-full font-bold text-sm uppercase tracking-[0.15em] text-white group hover:opacity-90 transition-opacity" style={{ background: GRAD }}>
                 Submit <Send size={13} className="group-hover:translate-x-1 transition-transform" />
@@ -1314,109 +1171,11 @@ export default function App() {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen">
-      <style>{`
-        @media (max-width: 768px) {
-          html, body {
-            overflow-x: hidden;
-          }
-
-          .mobile-section {
-            padding-top: 4.5rem !important;
-            padding-bottom: 4.5rem !important;
-          }
-
-          .mobile-stack-grid {
-            grid-template-columns: 1fr !important;
-            gap: 2rem !important;
-          }
-
-          .mobile-home-hero {
-            padding-top: 6.5rem !important;
-          }
-
-          .mobile-hero-title {
-            font-size: clamp(3.1rem, 16vw, 5.2rem) !important;
-            line-height: 0.9 !important;
-            letter-spacing: -0.04em !important;
-          }
-
-          .mobile-hero-copy {
-            font-size: 0.96rem !important;
-            max-width: 100% !important;
-          }
-
-          .mobile-impact-title {
-            font-size: clamp(2.2rem, 8vw, 3.2rem) !important;
-            line-height: 1.04 !important;
-          }
-
-          .mobile-impact-shell {
-            height: auto !important;
-          }
-
-          .mobile-impact-copy {
-            padding-top: 4.25rem !important;
-            padding-bottom: 1.25rem !important;
-          }
-
-          .mobile-impact-layered {
-            margin-bottom: 1.5rem !important;
-            padding-left: 0 !important;
-          }
-
-          .mobile-impact-layered ul {
-            margin: 0 !important;
-            align-items: center !important;
-          }
-
-          .mobile-impact-layered li {
-            transform: none !important;
-          }
-
-          .mobile-impact-layered li > div {
-            transform: none !important;
-          }
-
-          .mobile-impact-layered p {
-            text-align: center !important;
-            width: 100% !important;
-            font-size: clamp(2.1rem, 9vw, 3.6rem) !important;
-            letter-spacing: -0.03em !important;
-          }
-
-          .mobile-impact-art,
-          .mobile-impact-art-mobile {
-            display: none !important;
-          }
-
-          .mobile-statement .statement-text {
-            font-size: clamp(2rem, 9vw, 3.2rem) !important;
-            line-height: 1.08 !important;
-          }
-
-          .sova-loading-shell {
-            padding: 0 1.5rem !important;
-          }
-
-          .sova-loading-sova {
-            font-size: clamp(2.8rem, 15vw, 4.5rem) !important;
-            padding-right: 0.8rem !important;
-          }
-
-          .sova-loading-intelligence {
-            font-size: clamp(0.8rem, 3vw, 1.1rem) !important;
-            padding-left: 0.8rem !important;
-            letter-spacing: 0.18em !important;
-          }
-        }
-      `}</style>
-      <WhatsAppButton />
       <Navbar page={page} go={go} />
       <div className="transition-opacity duration-150" style={{ opacity: visible ? 1 : 0 }}>
         {page === "home"     && <HomePage     go={go} />}
         {page === "about"    && <AboutPage    go={go} />}
         {page === "services" && <ServicesPage go={go} />}
-        {page === "sponsors" && <SponsorsPage go={go} />}
         {page === "rsvp"     && <RSVPPage />}
         <Footer go={go} />
       </div>
