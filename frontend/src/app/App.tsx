@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, FormEvent, ReactNode } from "react";
 import { ImageWithFallback } from "@/app/components/media/ImageWithFallback";
+import { WhatsAppButton } from "@/app/components/WhatsAppButton";
 import sovaLogo from "@/imports/sova.jpeg";
 import salasiahPic from "@/imports/salasiah.jpeg";
 import fadillahPic from "@/imports/fadillah.jpeg";
@@ -224,12 +225,12 @@ function ImpactSection() {
   }, []);
 
   return (
-    <div ref={wrapperRef} style={{ height: "180vh" }} className="relative">
+    <div ref={wrapperRef} style={{ height: "180vh" }} className="mobile-impact-section relative">
       <div className="sticky top-0 h-screen bg-[#111111] border-t border-b border-[#1a1a1a]">
-        <div className="h-full max-w-7xl mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-0 items-center">
+        <div className="mobile-impact-shell h-full max-w-7xl mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-0 items-center">
 
           {/* ── Left column ── */}
-          <div className="py-16 lg:py-0 lg:pr-8">
+          <div className="mobile-impact-copy py-16 lg:py-0 lg:pr-8">
             <FadeUp once>
               <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-10">
                 (The Turning Point)
@@ -237,7 +238,7 @@ function ImpactSection() {
             </FadeUp>
 
             {/* Layered text shifted ~32px right of its natural start */}
-            <div className="mb-10" style={{ paddingLeft: 32 }}>
+            <div className="mobile-layered-text mb-10" style={{ paddingLeft: 32 }}>
               <LayeredText textProgress={Math.max(0, Math.min(1, (scrollProgress - 0.05) / 0.8))} />
             </div>
 
@@ -272,7 +273,7 @@ function ImpactSection() {
           </div>
 
           {/* Mobile */}
-          <div className="flex lg:hidden justify-center pb-16">
+          <div className="mobile-impact-mosaic flex lg:hidden justify-center pb-16">
             <ImageMosaic scrollProgress={scrollProgress} />
           </div>
         </div>
@@ -591,7 +592,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
           <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-8">
             (Johor Bahru · Kuala Lumpur, Malaysia)
           </div>
-          <h1 className="font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2)", letterSpacing: "-0.015em" }}>
+          <h1 className="mobile-hero-title font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2)", letterSpacing: "-0.015em" }}>
             Applied AI.
             <br />
             <span style={{ background: GRAD, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
@@ -615,7 +616,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>The Impact</Label></FadeUp>
           <TextBlockReveal blockColor="#2d2d2d" duration={920} className="mb-16">
-            <h2 className="font-black text-white leading-tight max-w-4xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 4.8)", lineHeight: 1.08 }}>
+            <h2 className="mobile-impact-title font-black text-white leading-tight max-w-4xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 4.8)", lineHeight: 1.08 }}>
               Most organisations aren't lacking technology — they're struggling with execution. SOVA builds the connective layer that turns investment into measurable impact.
             </h2>
           </TextBlockReveal>
@@ -645,7 +646,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
               <TextBlockReveal blockColor="#2d2d2d" duration={880} className="mb-6">
-                <h2 className="font-black text-white leading-tight" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.4)", lineHeight: 1.1 }}>
+                <h2 className="mobile-section-title font-black text-white leading-tight" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.4)", lineHeight: 1.1 }}>
                   Bridging global AI research with local operational needs.
                 </h2>
               </TextBlockReveal>
@@ -712,7 +713,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
           <FadeUp><Label>What We Do</Label></FadeUp>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
             <FadeUp delay={80}>
-              <h2 className="font-black text-white leading-tight max-w-xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.4)", lineHeight: 1.1 }}>
+              <h2 className="mobile-section-title font-black text-white leading-tight max-w-xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.4)", lineHeight: 1.1 }}>
                 Capabilities built for Malaysia's AI era.
               </h2>
             </FadeUp>
@@ -787,7 +788,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>What can we do for you?</Label></FadeUp>
           <FadeUp delay={80}>
-            <h2 className="font-black text-white mb-12 max-w-xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.4)", lineHeight: 1.1 }}>
+            <h2 className="mobile-section-title font-black text-white mb-12 max-w-xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.4)", lineHeight: 1.1 }}>
               Something meaningful for everyone.
             </h2>
           </FadeUp>
@@ -810,7 +811,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>Work With Us</Label></FadeUp>
           <TextBlockReveal blockColor="#2d2d2d" duration={1000} className="mb-10">
-            <h2 className="font-black text-white leading-none" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 8.75)", lineHeight: 0.92 }}>
+            <h2 className="mobile-join-title font-black text-white leading-none" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 8.75)", lineHeight: 0.92 }}>
               Be part of<br />the movement.
             </h2>
           </TextBlockReveal>
@@ -840,7 +841,7 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>About Us</Label></FadeUp>
           <TextBlockReveal blockColor="#2d2d2d" duration={1000}>
-            <h1 className="font-black text-white leading-tight" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 6.25)", lineHeight: 1.05 }}>
+            <h1 className="mobile-page-title font-black text-white leading-tight" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 6.25)", lineHeight: 1.05 }}>
               Applied AI, Automation & Ecosystem Designs.
             </h1>
           </TextBlockReveal>
@@ -1005,7 +1006,7 @@ function ServicesPage({ go }: { go: (p: Page) => void }) {
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>What We Do</Label></FadeUp>
           <TextBlockReveal blockColor="#2d2d2d" duration={1000} className="mb-6">
-            <h1 className="font-black text-white leading-[0.92]" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 8.1)", lineHeight: 0.92 }}>
+            <h1 className="mobile-page-title font-black text-white leading-[0.92]" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 8.1)", lineHeight: 0.92 }}>
               A choice that<br />
               <span style={{ background: GRAD, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>changes everything.</span>
             </h1>
@@ -1086,7 +1087,7 @@ function RSVPPage() {
       <div className="max-w-3xl mx-auto px-6 py-24">
         <FadeUp><Label>Get in Touch</Label></FadeUp>
         <TextBlockReveal blockColor="#2d2d2d" duration={1000} className="mb-4">
-          <h1 className="font-black text-white leading-none" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 6.25)", lineHeight: 1 }}>
+          <h1 className="mobile-page-title font-black text-white leading-none" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 6.25)", lineHeight: 1 }}>
             Let us know<br />anything.
           </h1>
         </TextBlockReveal>
@@ -1170,7 +1171,143 @@ export default function App() {
   if (!loaded) return <LoadingScreen onComplete={() => setLoaded(true)} />;
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen">
+    <div className="mobile-app-root bg-[#0a0a0a] min-h-screen">
+      <style>{`
+        @media (max-width: 767px) {
+          html, body {
+            overflow-x: hidden;
+            width: 100%;
+          }
+
+          .mobile-app-root section,
+          .mobile-app-root footer {
+            min-width: 0;
+          }
+
+          .mobile-app-root section,
+          .mobile-app-root footer {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+          }
+
+          .mobile-app-root nav > div {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+          }
+
+          .mobile-hero-title {
+            font-size: clamp(3.25rem, 15.5vw, 5.25rem) !important;
+            line-height: 0.9 !important;
+            letter-spacing: -0.035em !important;
+            overflow-wrap: break-word;
+          }
+
+          .mobile-impact-title,
+          .mobile-section-title {
+            font-size: clamp(2.25rem, 9vw, 3.5rem) !important;
+            line-height: 1.04 !important;
+            overflow-wrap: break-word;
+          }
+
+          .mobile-page-title {
+            font-size: clamp(3.2rem, 13vw, 5rem) !important;
+            line-height: 0.95 !important;
+            letter-spacing: -0.025em !important;
+            overflow-wrap: break-word;
+          }
+
+          .mobile-join-title {
+            font-size: clamp(3.6rem, 17vw, 6rem) !important;
+            line-height: 0.9 !important;
+            letter-spacing: -0.03em !important;
+          }
+
+          .mobile-impact-section {
+            height: auto !important;
+          }
+
+          .mobile-impact-section > .sticky {
+            position: relative;
+            height: auto;
+          }
+
+          .mobile-impact-shell {
+            height: auto !important;
+            display: block;
+          }
+
+          .mobile-impact-copy {
+            padding-top: 4.5rem;
+            padding-bottom: 3.5rem;
+          }
+
+          .mobile-layered-text {
+            padding-left: 0 !important;
+            margin-bottom: 2.5rem;
+          }
+
+          .mobile-layered-text ul {
+            align-items: center !important;
+            margin: 0 !important;
+          }
+
+          .mobile-layered-text li,
+          .mobile-layered-text li > div {
+            transform: none !important;
+          }
+
+          .mobile-layered-text p {
+            width: 100%;
+            text-align: center;
+            font-size: clamp(2rem, 9vw, 3.4rem) !important;
+            letter-spacing: -0.035em !important;
+          }
+
+          .mobile-impact-mosaic {
+            display: none;
+          }
+
+          .mobile-app-root .grid-cols-2 {
+            grid-template-columns: 1fr;
+          }
+
+          .mobile-app-root button,
+          .mobile-app-root input,
+          .mobile-app-root textarea {
+            max-width: 100%;
+          }
+
+          .mobile-app-root form input,
+          .mobile-app-root form textarea {
+            min-width: 0;
+            width: 100%;
+          }
+
+          .mobile-app-root form button {
+            min-height: 48px;
+          }
+
+          .mobile-app-root footer .grid {
+            gap: 2.5rem;
+          }
+
+          .sova-whatsapp-float {
+            right: 1rem !important;
+            bottom: 1rem !important;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .mobile-hero-title {
+            font-size: 3rem !important;
+          }
+
+          .mobile-page-title {
+            font-size: 2.9rem !important;
+          }
+        }
+      `}</style>
+      <WhatsAppButton />
       <Navbar page={page} go={go} />
       <div className="transition-opacity duration-150" style={{ opacity: visible ? 1 : 0 }}>
         {page === "home"     && <HomePage     go={go} />}
