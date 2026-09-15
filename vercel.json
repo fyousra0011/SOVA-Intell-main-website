@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm --prefix frontend run build",
+  "installCommand": "npm install --prefix frontend --include=dev && npm install --prefix backend --include=dev",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
+    {
+      "source": "/((?!api(?:/|$)).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
