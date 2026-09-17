@@ -937,7 +937,7 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
                 <p className="text-[10px] uppercase tracking-[0.32em] text-gray-600 mb-6">Programme Highlights</p>
                 <div className="space-y-5">
                   {[
-                    "Delivered across Johor Bahru and Kuala Lumpur, with KPYPJ partnership frameworks",
+                    "Delivered across Johor Bahru, Kuala Lumpur, Sinapore and Indonesiawith SIRIM CALIBRATION partnership framework",
                     "Rapid workflow assessments targeting 40–60% manual efficiency gains",
                     "Zhejiang University MOU enabling joint global-to-local technology deployment",
                     "Corporate cohorts aligned to enterprise workflow and automation needs",
