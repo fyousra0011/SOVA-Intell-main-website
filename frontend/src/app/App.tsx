@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, FormEvent, ReactNode } from "react";
 import { ImageWithFallback } from "@/app/components/media/ImageWithFallback";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
-import sovaLogo from "@/imports/sova.jpeg";
+import sovaLogo from "@/imports/sova.png";
 import salasiahPic from "@/imports/salasiah.jpeg";
 import fadillahPic from "@/imports/fadillah.jpeg";
 import waynePic from "@/imports/wayne.jpeg";
@@ -102,9 +102,9 @@ function FadeUp({ children, delay = 0, distance = 26, className = "", once = fal
 
 const LAYERED_LINES = [
   { top: " ",         bottom: "INTELLIGENCE" },
-  { top: "INTELLIGENCE",  bottom: "MALAYSIA" },
-  { top: "MALAYSIA",      bottom: "TRANSFORMS" },
-  { top: "TRANSFORMS",    bottom: "TOMORROW" },
+  { top: "INTELLIGENCE",  bottom: "TRANSFORMS" },
+  { top: "TRANSFORMS",      bottom: "MALAYSIA" },
+  { top: "MALAYSIA",    bottom: "TOMORROW" },
   { top: "TOMORROW",      bottom: "BEGINS" },
   { top: "BEGINS",        bottom: "NOW" },
   { top: "NOW",           bottom: " " },
@@ -233,7 +233,7 @@ function ImpactSection() {
           <div className="mobile-impact-copy py-16 lg:py-0 lg:pr-8">
             <FadeUp once>
               <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-10">
-                (The Turning Point)
+                The Turning Point
               </div>
             </FadeUp>
 
@@ -447,7 +447,7 @@ function Ticker() {
 function Label({ children }: { children: string }) {
   return (
     <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-8">
-      ({children})
+      {children}
     </div>
   );
 }
@@ -510,7 +510,7 @@ function Navbar({ page, go }: { page: Page; go: (p: Page) => void }) {
           <button onClick={() => { go("rsvp"); setOpen(false); }} className="text-left text-4xl font-black text-white uppercase tracking-tight hover:text-gray-300 transition-colors" style={{ fontFamily: DISPLAY }}>Contact</button>
         </div>
         <div className="mt-auto pb-10 border-t border-[#1a1a1a] pt-8">
-          <p className="text-gray-600 text-xs uppercase tracking-[0.2em]">Johor Bahru · Kuala Lumpur, Malaysia</p>
+          <p className="text-gray-600 text-xs uppercase tracking-[0.2em]">Cyberjaya · Johor Bahru, Malaysia</p>
         </div>
       </div>
     </>
@@ -532,7 +532,7 @@ function Footer({ go }: { go: (p: Page) => void }) {
           <div>
             <p className="text-[10px] uppercase tracking-[0.32em] text-gray-700 mb-5">Navigate</p>
             <div className="flex flex-col gap-3">
-              {([["Home","home"],["About","about"],["Services","services"],["Contact","rsvp"]] as [string,Page][]).map(([l,p]) => (
+              {([['Home', 'home'], ['About', 'about'], ['Services', 'services'], ['Contact', 'rsvp']] as [string, Page][]).map(([l, p]) => (
                 <button key={p} onClick={() => go(p)} className="text-sm text-gray-600 hover:text-white transition-colors text-left" style={{ fontFamily: BODY }}>{l}</button>
               ))}
             </div>
@@ -543,12 +543,11 @@ function Footer({ go }: { go: (p: Page) => void }) {
               <a href="#" className="text-gray-600 hover:text-white transition-colors p-1"><Linkedin size={18} /></a>
               <a href="#" className="text-gray-600 hover:text-white transition-colors p-1"><Instagram size={18} /></a>
             </div>
-            <p className="text-sm text-gray-600" style={{ fontFamily: BODY }}>Johor Bahru · Kuala Lumpur, Malaysia</p>
           </div>
         </div>
         <div className="border-t border-[#1a1a1a] pt-6 flex flex-col md:flex-row justify-between items-center gap-2">
           <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em]">© 2026 SOVA. All rights reserved.</p>
-          <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em]">Johor Bahru · Kuala Lumpur, Malaysia</p>
+          <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em]">CYBERJAYA · Johor Bahru, Malaysia</p>
         </div>
       </div>
     </footer>
@@ -590,7 +589,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         <ParticleCanvas />
         <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 md:px-16 pt-28 pb-0">
           <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-8">
-            (Johor Bahru · Kuala Lumpur, Malaysia)
+            Cyberjaya · Johor Bahru, Malaysia
           </div>
           <h1 className="mobile-hero-title font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2)", letterSpacing: "-0.015em" }}>
             Applied AI.
@@ -600,7 +599,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
             </span>
           </h1>
           <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 max-w-md font-light">
-            Practical, inclusive AI for organisations that need more than strategy — they need results. Johor Bahru · Kuala Lumpur.
+            Practical, inclusive AI for organisations that need more than strategy — they need results. 
           </p>
           <div>
             <button onClick={() => go("about")} className="group inline-flex items-center gap-3 px-7 py-3.5 bg-white text-black font-bold text-xs uppercase tracking-[0.16em] rounded-full hover:bg-white/90 transition-all">
@@ -621,7 +620,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
             </h2>
           </TextBlockReveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-[#1a1a1a]">
-            {([["40–60%","Manual Efficiency Gains"],["3","Operational Pillars"],["Est. 2023","Johor Bahru, Malaysia"]] as [string,string][]).map(([v, l], i) => (
+            {([["40–60%","Manual Efficiency Gains"],["3","Operational Pillars"],["Est. 2025","FROM EDTECH TO AI · SINCE 2019"]] as [string,string][]).map(([v, l], i) => (
               <FadeUp key={l} delay={i * 100} className="bg-[#0a0a0a]">
                 <div className="p-10 md:p-14">
                   <div className="font-black text-white mb-2" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 5)", lineHeight: 1 }}>{v}</div>
@@ -682,7 +681,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
       <section className="bg-[#0a0a0a] py-20 md:py-28 px-6 md:px-16">
         <div className="max-w-5xl mx-auto">
           <FadeUp once>
-            <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-6">(Our Story)</div>
+            <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-6">Our Story</div>
           </FadeUp>
           <FadeUp delay={80} once>
             <div style={{
@@ -937,11 +936,11 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
                 <p className="text-[10px] uppercase tracking-[0.32em] text-gray-600 mb-6">Programme Highlights</p>
                 <div className="space-y-5">
                   {[
-                    "Delivered across Johor Bahru, Kuala Lumpur, Sinapore and Indonesiawith SIRIM CALIBRATION partnership framework",
+                    "Delivered across Johor Bahru, Kuala Lumpur - Malaysia, Singapore and Indonesia with SIRIM CALIBRATION partnership framework",
                     "Rapid workflow assessments targeting 40–60% manual efficiency gains",
                     "Zhejiang University MOU enabling joint global-to-local technology deployment",
                     "Corporate cohorts aligned to enterprise workflow and automation needs",
-                    "KUSKOP-endorsed policy dialogue — AI literacy for entrepreneurs and women",
+                    "KUSKOP policy dialogue — AI literacy for entrepreneurs and women",
                     "Modular growth frameworks adaptable to ministry and corporate infrastructure",
                   ].map((item, i) => (
                     <div key={i} className="flex gap-3 items-start">
