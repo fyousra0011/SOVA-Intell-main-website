@@ -611,7 +611,7 @@ const WHY_US = [
 ];
 
 function HomePage({ go }: { go: (p: Page) => void }) {
-  const logoItems = [...PARTNER_NAMES, ...PARTNER_NAMES, ...PARTNER_NAMES, ...PARTNER_NAMES];
+  const logoItems = [...PARTNER_NAMES, ...PARTNER_NAMES, ...PARTNER_NAMES, ...PARTNER_NAMES, ...PARTNER_NAMES];
 
   return (
     <div style={{ fontFamily: BODY }}>
@@ -793,9 +793,9 @@ function HomePage({ go }: { go: (p: Page) => void }) {
         </div>
 
         <div className="overflow-hidden border-y border-[#1e1e1e] py-5">
-          <div className="flex whitespace-nowrap" style={{ animation: "ticker 22s linear infinite" }}>
-            {[...logoItems, ...logoItems].map((name, i) => (
-              <div key={i} className="inline-flex items-center px-4">
+          <div className="flex w-max whitespace-nowrap items-center" style={{ animation: "ticker 83s linear infinite", willChange: "transform" }}>
+            {[...logoItems, ...logoItems, ...logoItems].map((name, i) => (
+              <div key={`${name}-${i}`} className="inline-flex items-center px-4 shrink-0">
                 <div className="bg-[#1a1a1a] border border-[#272727] rounded px-8 py-4 min-w-[140px] text-center">
                   <span className="text-gray-500 text-[10px] uppercase tracking-[0.22em] font-semibold">{name}</span>
                 </div>
