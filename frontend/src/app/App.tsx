@@ -9,7 +9,7 @@ import sovaImg1 from "@/imports/image-1.png";
 import sovaImg2 from "@/imports/image-2.png";
 import sovaImg3 from "@/imports/image-3.png";
 import {
-  Menu, X, ArrowRight, Linkedin, Instagram,
+  Menu, X, ArrowRight, Linkedin, Instagram, Facebook, Twitter,
   Brain, Zap, BarChart3,
   Globe, CheckCircle, ChevronRight,
   Send, Shield, Cpu,
@@ -468,6 +468,21 @@ function Statement({ lines }: { lines: string[] }) {
   );
 }
 
+function ThreadsIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M16.5 7.7c-1.1-.9-2.5-1.4-4.2-1.4-3.2 0-5.4 2-5.4 5.1 0 3 2.2 5 5.4 5 1.8 0 3.1-.5 4.2-1.6l-1.8-1.7c-.7.8-1.6 1.2-2.6 1.2-1.9 0-3.2-1.3-3.2-3.3 0-2 1.3-3.2 3.2-3.2 1.1 0 2.1.4 2.7 1.2l1.7-1.7Zm-4.8 5.1c-.4.6-1 .9-1.8.9-1.5 0-2.5-1-2.5-2.7 0-1.7 1-2.7 2.5-2.7.8 0 1.4.3 1.8.9l1.8-1.7c-.9-.9-2.2-1.4-3.8-1.4-2.8 0-4.8 2-4.8 5 0 3.1 2.1 5.1 4.9 5.1 1.8 0 3.2-.6 4.2-1.8l-1.8-1.8c-.6.7-1.4 1-2.3 1-.9 0-1.7-.4-2.2-1.1l-1.9 1.8c.8 1.3 2.3 2.2 4.2 2.2 3.2 0 5.7-2 5.7-5.4 0-2.8-1.8-4.9-4.4-5.3v2.2h-.1Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M14.6 9.1c.7-.3 1.5-.4 2.3-.3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 // ══════════════════════════════════════════════════════════════
 // NAVBAR
 // ══════════════════════════════════════════════════════════════
@@ -539,9 +554,26 @@ function Footer({ go }: { go: (p: Page) => void }) {
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-[0.32em] text-gray-700 mb-5">Connect</p>
-            <div className="flex gap-4 mb-5">
-              <a href="#" className="text-gray-600 hover:text-white transition-colors p-1"><Linkedin size={18} /></a>
-              <a href="#" className="text-gray-600 hover:text-white transition-colors p-1"><Instagram size={18} /></a>
+            <div className="flex flex-wrap gap-3 mb-5">
+              {[
+                { href: "https://www.linkedin.com/company/sovaintelligence/", label: "LinkedIn", Icon: Linkedin },
+                { href: "https://www.facebook.com/SOVAintell/", label: "Facebook", Icon: Facebook },
+                { href: "https://www.instagram.com/sovaintell/", label: "Instagram", Icon: Instagram },
+                { href: "https://x.com/SOVAintell", label: "X", Icon: Twitter },
+                { href: "https://www.threads.com/@sovaintell", label: "Threads", Icon: ThreadsIcon },
+              ].map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label={label}
+                  title={label}
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[#1a1a1a] bg-[#0f0f0f] text-gray-600 hover:text-white hover:border-white/20 transition-all duration-200"
+                >
+                  <Icon size={16} className="shrink-0" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
