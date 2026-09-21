@@ -591,10 +591,10 @@ function HomePage({ go }: { go: (p: Page) => void }) {
           <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-8">
             Cyberjaya · Johor Bahru, Malaysia
           </div>
-          <h1 className="mobile-hero-title font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2)", letterSpacing: "-0.015em" }}>
+          <h1 className="mobile-hero-title font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2)", letterSpacing: "0.02em", wordSpacing: "0.14em" }}>
             Applied AI.
             <br />
-            <span style={{ background: GRAD, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: GRAD, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", letterSpacing: "0.01em", wordSpacing: "0.12em" }}>
               Real-World<br />Execution.
             </span>
           </h1>
@@ -1197,7 +1197,8 @@ export default function App() {
           .mobile-hero-title {
             font-size: clamp(3.25rem, 15.5vw, 5.25rem) !important;
             line-height: 0.9 !important;
-            letter-spacing: -0.035em !important;
+            letter-spacing: 0.01em !important;
+            word-spacing: 0.12em !important;
             overflow-wrap: break-word;
           }
 
