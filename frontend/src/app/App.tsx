@@ -591,7 +591,7 @@ function Footer({ go }: { go: (p: Page) => void }) {
 // ══════════════════════════════════════════════════════════════
 const PARTNER_NAMES = [
   "Zhejiang University","Graphen","SustNET","KPYPJ",
-  "Cyberjaya AI-Exchange","KUSKOP","Zhejiang Business Station","MDEC","MITI","Cyberview",
+  "Cyberjaya AI-Exchange","KUSKOP","Zhejiang Business Station","MDEC","MITI","Cyberview","UTM","UTHM",
 ];
 
 const HOME_SERVICES = [
