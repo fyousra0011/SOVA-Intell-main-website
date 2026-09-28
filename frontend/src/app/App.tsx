@@ -927,6 +927,7 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
                       src={src}
                       alt={alt}
                       className="w-full h-full object-cover object-top"
+                      style={name === "Wayne Yap" ? { transform: "scale(1.12)", transformOrigin: "top center" } : undefined}
                     />
                   </div>
                   <TextBlockReveal blockColor="#2d2d2d" duration={700}>
