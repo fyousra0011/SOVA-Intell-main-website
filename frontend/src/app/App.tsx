@@ -575,6 +575,12 @@ function Footer({ go }: { go: (p: Page) => void }) {
                 </a>
               ))}
             </div>
+            <p className="text-gray-500 text-sm leading-relaxed max-w-xs" style={{ fontFamily: BODY }}>
+              SOVA Intelligence (M) Sdn Bhd<br />
+              Level 1, CoPlace 10<br />
+              Block 2330, Century Square, Jalan Usahawan,<br />
+              Off Persiaran Multimedia, 63000 CYBERJAYA.
+            </p>
           </div>
         </div>
         <div className="border-t border-[#1a1a1a] pt-6 flex flex-col md:flex-row justify-between items-center gap-2">
@@ -590,8 +596,8 @@ function Footer({ go }: { go: (p: Page) => void }) {
 // HOME PAGE
 // ══════════════════════════════════════════════════════════════
 const PARTNER_NAMES = [
-  "Zhejiang University","Graphen","SustNET","KPYPJ",
-  "Cyberjaya AI-Exchange","KUSKOP","Zhejiang Business Station","MDEC","MITI","Cyberview","UTM","UTHM",
+  "Zhejiang University","Graphen","SustNET","KUSKOP",
+  "Cyberview","UTM","UTHM","SIRIM CALIBRATION",
 ];
 
 const HOME_SERVICES = [
@@ -991,10 +997,11 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
         <div className="max-w-7xl mx-auto">
           <FadeUp><Label>International Partnerships</Label></FadeUp>
           <FadeUp delay={80}><h2 className="font-black text-white mb-12 max-w-2xl" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.25)" }}>Building bridges between Malaysian AI and the world.</h2></FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {[
               { partner: "Zhejiang University", country: "People's Republic of China", desc: "MOU partnership enabling joint global-to-local technology deployment. The Zhejiang Business Station ASEAN Headquarters in Johor Bahru anchors our technology transfer and applied research collaboration." },
               { partner: "Graphen & SustNET",   country: "Strategic Technology Partners", desc: "Forming strategic ties to drive technology transfer and applied AI innovation across Malaysia — spanning intelligent data platforms, sustainable infrastructure, and ecosystem activation." },
+              { partner: "SIRIM CALIBRATION", country: "Strategic Industry Collaboration", desc: "Strategic collaboration strengthening SOVA’s industrial capabilities through nationally recognised measurement and calibration expertise. The partnership connects SIRIM’s technical capabilities with SOVA’s market access, technology integration and growing industry network." },
             ].map(({ partner, country, desc }, i) => (
               <FadeUp key={partner} delay={i * 120} distance={18}>
                 <div className="bg-[#111111] border border-[#1e1e1e] rounded-xl p-8 h-full">
