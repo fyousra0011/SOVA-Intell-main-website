@@ -608,6 +608,7 @@ const HOME_SERVICES = [
   { icon: Shield,        title: "Cybersecurity & Digital Resilience", desc: "Cybersecurity frameworks, security monitoring and threat intelligence to protect your operations." },
   { icon: Globe,         title: "IoT & Smart Infrastructure",       desc: "IoT sensors, edge computing and remote monitoring for intelligent, connected environments." },
   { icon: Cpu,           title: "Digital Twins & Emerging Tech",    desc: "Digital twin platforms, simulation modelling and scenario analysis for future-ready decision-making." },
+  { icon: Ruler,         title: "Measurement & Calibration",        desc: "Accredited measurement, metrology and on-site capabilities supporting precision, traceability and reliability through SIRIM Calibration." },
 ];
 
 const WHY_US = [
