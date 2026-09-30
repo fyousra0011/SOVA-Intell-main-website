@@ -12,7 +12,7 @@ import {
   Menu, X, ArrowRight, Linkedin, Instagram, Facebook, Twitter,
   Brain, Zap, BarChart3,
   Globe, CheckCircle, ChevronRight,
-  Send, Shield, Cpu,
+  Send, Shield, Cpu, Ruler,
 } from "lucide-react";
 
 type Page = "home" | "about" | "services" | "rsvp";
@@ -598,6 +598,7 @@ function Footer({ go }: { go: (p: Page) => void }) {
 const PARTNER_NAMES = [
   "Zhejiang University","Graphen","SustNET","KUSKOP",
   "Cyberview","UTM","UTHM","SIRIM CALIBRATION",
+  "JLG Corporate Edge","Press KL",
 ];
 
 const HOME_SERVICES = [
@@ -1081,6 +1082,32 @@ function ServicesPage({ go }: { go: (p: Page) => void }) {
           </div>
         </section>
       ))}
+
+      <section className="py-20 md:py-28 px-6 md:px-16 border-b border-[#1a1a1a] bg-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+            <div>
+              <FadeUp><div className="flex items-center gap-4 mb-6"><Ruler size={17} className="text-[#4F7DFF]" /><Label>Strategic Collaboration</Label></div></FadeUp>
+              <TextBlockReveal blockColor="#2d2d2d" duration={780} className="mb-3"><h2 className="font-black text-white" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 2.5)" }}>SIRIM CALIBRATION × SOVA</h2></TextBlockReveal>
+              <FadeUp delay={100}><p className="text-lg text-gray-400 font-light italic mb-5 leading-relaxed">"Precision. Traceability. Measurement confidence."</p></FadeUp>
+              <FadeUp delay={200}><p className="text-gray-500 text-sm leading-relaxed">As SIRIM Calibration's appointed Market Access Collaborator, SOVA provides industry access to ISO/IEC 17025-accredited calibration and measurement capabilities, supporting metrological traceability, measurement accuracy and reliability of critical test and measuring equipment (T&ME).</p></FadeUp>
+            </div>
+            <FadeUp delay={120} distance={16}>
+              <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-8 h-full">
+                <p className="text-[10px] uppercase tracking-[0.32em] text-gray-600 mb-6">Deliverables</p>
+                <div className="space-y-4">
+                  {["Electrical · DC/LF · Time & Frequency","RF & Microwave","Temperature","Force · Pressure · Torque","Dimensional & 3D Measurement","Mass · Volumetric · Density","On-Site Services","Measurement & Metrology Training"].map((d, j) => (
+                    <div key={j} className="flex gap-3 items-center">
+                      <div className="w-1 h-1 rounded-full bg-[#4F7DFF] flex-shrink-0" />
+                      <span className="text-gray-400 text-sm">{d}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
 
       <section className="py-32 px-6 md:px-16 bg-[#0a0a0a] text-center">
         <div className="max-w-2xl mx-auto">
