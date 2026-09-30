@@ -703,6 +703,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
                 { icon: Zap,           title: "Automation",          desc: "Connected workflow automation built around your existing systems" },
                 { icon: BarChart3,     title: "Data Intelligence",   desc: "Executive dashboards and real-time analytics platforms" },
                 { icon: Shield,        title: "Digital Resilience",  desc: "Cybersecurity frameworks and threat intelligence" },
+                { icon: Ruler,         title: "Measurement & Calibration", desc: "ISO/IEC 17025-accredited measurement capabilities through SIRIM Calibration" },
               ].map(({ icon: Icon, title, desc }, i) => (
                 <FadeUp key={title} delay={i * 110} distance={20}>
                   <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-5 md:p-6 hover:border-[#4F7DFF]/40 hover:-translate-y-0.5 transition-all cursor-default h-full">
