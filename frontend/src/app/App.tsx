@@ -542,7 +542,6 @@ function Footer({ go }: { go: (p: Page) => void }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           <div>
             <SovaLogo size="lg" />
-            <p className="mt-5 text-gray-600 text-sm leading-relaxed max-w-xs" style={{ fontFamily: BODY }}>Intelligence. Innovation. Impact.</p>
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-[0.32em] text-gray-700 mb-5">Navigate</p>
