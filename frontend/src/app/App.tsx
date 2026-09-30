@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, FormEvent, ReactNode } from "react";
 import { ImageWithFallback } from "@/app/components/media/ImageWithFallback";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
-import sovaLogo from "@/imports/sova.png";
+import sovaLogo from "@/imports/sova.svg";
 import salasiahPic from "@/imports/salasiah.jpeg";
 import fadillahPic from "@/imports/fadillah.jpeg";
 import waynePic from "@/imports/wayne.jpeg";
