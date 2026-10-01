@@ -652,7 +652,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
             </h2>
           </TextBlockReveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-[#1a1a1a]">
-            {([["40–60%","Manual Efficiency Gains"],["3","Operational Pillars"],["Est. 2025","FROM EDTECH TO AI · SINCE 2019"]] as [string,string][]).map(([v, l], i) => (
+            {([["100%","Client-Focused"],["7","Core Capabilities"],["25+","Years of Leadership Experience"]] as [string,string][]).map(([v, l], i) => (
               <FadeUp key={l} delay={i * 100} className="bg-[#0a0a0a]">
                 <div className="p-10 md:p-14">
                   <div className="font-black text-white mb-2" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 5)", lineHeight: 1 }}>{v}</div>
