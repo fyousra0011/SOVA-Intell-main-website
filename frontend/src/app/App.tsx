@@ -232,7 +232,7 @@ function ImpactSection() {
           {/* ── Left column ── */}
           <div className="mobile-impact-copy py-16 lg:py-0 lg:pr-8">
             <FadeUp once>
-              <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-10">
+              <div className="text-[10px] uppercase tracking-[0.38em] text-gray-400 mb-10">
                 The Turning Point
               </div>
             </FadeUp>
@@ -250,7 +250,7 @@ function ImpactSection() {
               </p>
             </FadeUp>
             <FadeUp delay={280} once>
-              <p className="text-gray-600 text-sm leading-relaxed max-w-sm" style={{ fontFamily: BODY }}>
+              <p className="text-gray-400 text-sm leading-relaxed max-w-sm" style={{ fontFamily: BODY }}>
                 Every client we work with discovers the same truth: the distance between where
                 you are and where AI can take you is smaller than you think — and the leap is
                 more transformative than you imagined.
@@ -260,7 +260,7 @@ function ImpactSection() {
             <FadeUp delay={420} once>
               <div className="mt-10 flex items-center gap-3">
                 <div className="w-6 h-px bg-gray-700" />
-                <span className="text-[10px] uppercase tracking-[0.28em] text-gray-700">
+                <span className="text-[10px] uppercase tracking-[0.28em] text-gray-500">
                   Scroll to explore
                 </span>
               </div>
@@ -431,9 +431,9 @@ function Ticker() {
     <div className="overflow-hidden border-t border-[#1a1a1a] bg-[#0a0a0a] py-3">
       <div className="flex whitespace-nowrap" style={{ animation: "ticker 34s linear infinite" }}>
         {items.map((w, i) => (
-          <span key={i} className="inline-flex items-center text-[10px] uppercase tracking-[0.26em] text-gray-600">
+          <span key={i} className="inline-flex items-center text-[10px] uppercase tracking-[0.26em] text-gray-400">
             <span className="px-5">{w}</span>
-            <span className="text-gray-700 mx-1">·</span>
+            <span className="text-gray-500 mx-1">·</span>
           </span>
         ))}
       </div>
@@ -446,7 +446,7 @@ function Ticker() {
 // ══════════════════════════════════════════════════════════════
 function Label({ children }: { children: string }) {
   return (
-    <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-8">
+    <div className="text-[10px] uppercase tracking-[0.38em] text-gray-400 mb-8">
       {children}
     </div>
   );
@@ -518,7 +518,7 @@ function Navbar({ page, go }: { page: Page; go: (p: Page) => void }) {
           <button onClick={() => { go("rsvp"); setOpen(false); }} className="text-left text-4xl font-black text-white uppercase tracking-tight hover:text-gray-300 transition-colors" style={{ fontFamily: DISPLAY }}>Contact</button>
         </div>
         <div className="mt-auto pb-10 border-t border-[#1a1a1a] pt-8">
-          <p className="text-gray-600 text-xs uppercase tracking-[0.2em]">Cyberjaya · Johor Bahru, Malaysia</p>
+          <p className="text-gray-400 text-xs uppercase tracking-[0.2em]">Cyberjaya · Johor Bahru, Malaysia</p>
         </div>
       </div>
     </>
@@ -537,15 +537,15 @@ function Footer({ go }: { go: (p: Page) => void }) {
             <SovaLogo size="lg" />
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-[0.32em] text-gray-700 mb-5">Navigate</p>
+            <p className="text-[10px] uppercase tracking-[0.32em] text-gray-500 mb-5">Navigate</p>
             <div className="flex flex-col gap-3">
               {([['Home', 'home'], ['About', 'about'], ['Services', 'services'], ['Contact', 'rsvp']] as [string, Page][]).map(([l, p]) => (
-                <button key={p} onClick={() => go(p)} className="text-sm text-gray-600 hover:text-white transition-colors text-left" style={{ fontFamily: BODY }}>{l}</button>
+                <button key={p} onClick={() => go(p)} className="text-sm text-gray-400 hover:text-white transition-colors text-left" style={{ fontFamily: BODY }}>{l}</button>
               ))}
             </div>
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-[0.32em] text-gray-700 mb-5">Connect</p>
+            <p className="text-[10px] uppercase tracking-[0.32em] text-gray-500 mb-5">Connect</p>
             <div className="flex flex-wrap gap-3 mb-5">
               {[
                 { href: "https://www.linkedin.com/company/sovaintelligence/", label: "LinkedIn", Icon: Linkedin },
@@ -561,7 +561,7 @@ function Footer({ go }: { go: (p: Page) => void }) {
                   rel="noreferrer noopener"
                   aria-label={label}
                   title={label}
-                  className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[#1a1a1a] bg-[#0f0f0f] text-gray-600 hover:text-white hover:border-white/20 transition-all duration-200"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[#1a1a1a] bg-[#0f0f0f] text-gray-400 hover:text-white hover:border-white/20 transition-all duration-200"
                 >
                   <Icon size={16} className="shrink-0" />
                 </a>
@@ -576,8 +576,8 @@ function Footer({ go }: { go: (p: Page) => void }) {
           </div>
         </div>
         <div className="border-t border-[#1a1a1a] pt-6 flex flex-col md:flex-row justify-between items-center gap-2">
-          <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em]">© 2026 SOVA. All rights reserved.</p>
-          <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em]">CYBERJAYA · Johor Bahru, Malaysia</p>
+          <p className="text-[10px] text-gray-500 uppercase tracking-[0.18em]">© 2026 SOVA. All rights reserved.</p>
+          <p className="text-[10px] text-gray-400 uppercase tracking-[0.18em]">CYBERJAYA · Johor Bahru, Malaysia</p>
         </div>
       </div>
     </footer>
@@ -620,7 +620,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
       <section className="relative min-h-screen flex flex-col bg-[#0a0a0a] overflow-hidden">
         <ParticleCanvas />
         <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 md:px-16 pt-28 pb-0">
-          <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-8">
+          <div className="text-[10px] uppercase tracking-[0.38em] text-gray-400 mb-8">
             Cyberjaya · Johor Bahru, Malaysia
           </div>
           <h1 className="mobile-hero-title font-black leading-[0.91] tracking-tight text-white mb-8" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 9.2)", letterSpacing: "0.02em", wordSpacing: "0.14em" }}>
@@ -656,7 +656,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
               <FadeUp key={l} delay={i * 100} className="bg-[#0a0a0a]">
                 <div className="p-10 md:p-14">
                   <div className="font-black text-white mb-2" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 5)", lineHeight: 1 }}>{v}</div>
-                  <div className="text-[10px] uppercase tracking-[0.28em] text-gray-600">{l}</div>
+                  <div className="text-[10px] uppercase tracking-[0.28em] text-gray-400">{l}</div>
                 </div>
               </FadeUp>
             ))}
@@ -701,7 +701,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
                   <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-5 md:p-6 hover:border-[#4F7DFF]/40 hover:-translate-y-0.5 transition-all cursor-default h-full">
                     <Icon size={20} className="text-[#4F7DFF] mb-4" />
                     <h3 className="text-white font-bold text-sm mb-1">{title}</h3>
-                    <p className="text-gray-600 text-xs leading-relaxed">{desc}</p>
+                    <p className="text-gray-400 text-xs leading-relaxed">{desc}</p>
                   </div>
                 </FadeUp>
               ))}
@@ -714,7 +714,7 @@ function HomePage({ go }: { go: (p: Page) => void }) {
       <section className="bg-[#0a0a0a] py-20 md:py-28 px-6 md:px-16">
         <div className="max-w-5xl mx-auto">
           <FadeUp once>
-            <div className="text-[10px] uppercase tracking-[0.38em] text-gray-600 mb-6">Our Story</div>
+            <div className="text-[10px] uppercase tracking-[0.38em] text-gray-400 mb-6">Our Story</div>
           </FadeUp>
           <FadeUp delay={80} once>
             <div style={{
@@ -959,7 +959,7 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
                   <FadeUp key={track} delay={300 + i * 80} distance={14}>
                     <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-4 h-full">
                       <div className="text-white text-xs font-bold mb-1" style={{ fontFamily: DISPLAY }}>{track}</div>
-                      <div className="text-gray-600 text-xs leading-relaxed">{desc}</div>
+                      <div className="text-gray-400 text-xs leading-relaxed">{desc}</div>
                     </div>
                   </FadeUp>
                 ))}
@@ -967,7 +967,7 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
             </div>
             <FadeUp delay={120} distance={16}>
               <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-8">
-                <p className="text-[10px] uppercase tracking-[0.32em] text-gray-600 mb-6">Programme Highlights</p>
+                <p className="text-[10px] uppercase tracking-[0.32em] text-gray-400 mb-6">Programme Highlights</p>
                 <div className="space-y-5">
                   {[
                     "Delivered across Johor Bahru, Kuala Lumpur - Malaysia, Singapore and Indonesia with SIRIM CALIBRATION partnership framework",
@@ -1001,7 +1001,7 @@ function AboutPage({ go }: { go: (p: Page) => void }) {
             ].map(({ partner, country, desc }, i) => (
               <FadeUp key={partner} delay={i * 120} distance={18}>
                 <div className="bg-[#111111] border border-[#1e1e1e] rounded-xl p-8 h-full">
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-gray-600 mb-3">{country}</div>
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-3">{country}</div>
                   <h3 className="font-black text-white mb-4" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 1.875)" }}>{partner}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                 </div>
@@ -1054,14 +1054,14 @@ function ServicesPage({ go }: { go: (p: Page) => void }) {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
               <div>
-                <FadeUp><div className="flex items-center gap-4 mb-6"><span className="text-[10px] text-gray-600 tracking-[0.35em] font-mono">{num}</span><Icon size={17} className="text-[#4F7DFF]" /></div></FadeUp>
+                <FadeUp><div className="flex items-center gap-4 mb-6"><span className="text-[10px] text-gray-400 tracking-[0.35em] font-mono">{num}</span><Icon size={17} className="text-[#4F7DFF]" /></div></FadeUp>
                 <TextBlockReveal blockColor="#2d2d2d" duration={780} className="mb-3"><h2 className="font-black text-white" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 2.5)" }}>{title}</h2></TextBlockReveal>
                 <FadeUp delay={100}><p className="text-lg text-gray-400 font-light italic mb-5 leading-relaxed">"{headline}"</p></FadeUp>
                 <FadeUp delay={200}><p className="text-gray-500 text-sm leading-relaxed">{desc}</p></FadeUp>
               </div>
               <FadeUp delay={120} distance={16}>
                 <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-8 h-full">
-                  <p className="text-[10px] uppercase tracking-[0.32em] text-gray-600 mb-6">Deliverables</p>
+                  <p className="text-[10px] uppercase tracking-[0.32em] text-gray-400 mb-6">Deliverables</p>
                   <div className="space-y-4">
                     {deliverables.map((d, j) => (
                       <div key={j} className="flex gap-3 items-center">
@@ -1088,7 +1088,7 @@ function ServicesPage({ go }: { go: (p: Page) => void }) {
             </div>
             <FadeUp delay={120} distance={16}>
               <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-8 h-full">
-                <p className="text-[10px] uppercase tracking-[0.32em] text-gray-600 mb-6">Deliverables</p>
+                <p className="text-[10px] uppercase tracking-[0.32em] text-gray-400 mb-6">Deliverables</p>
                 <div className="space-y-4">
                   {["Electrical · DC/LF · Time & Frequency","RF & Microwave","Temperature","Force · Pressure · Torque","Dimensional & 3D Measurement","Mass · Volumetric · Density","On-Site Services","Measurement & Metrology Training"].map((d, j) => (
                     <div key={j} className="flex gap-3 items-center">
@@ -1163,7 +1163,7 @@ function RSVPPage() {
           ].map(({ key, label, type, req }, i) => (
             <FadeUp key={key} delay={i * 60} distance={12}>
               <div className="border-b border-[#1a1a1a] py-6 flex flex-col sm:flex-row sm:items-center gap-3">
-                <label className="text-gray-600 text-[10px] uppercase tracking-[0.28em] sm:w-44 flex-shrink-0">
+                <label className="text-gray-400 text-[10px] uppercase tracking-[0.28em] sm:w-44 flex-shrink-0">
                   {label}{req && <span className="text-[#4F7DFF] ml-1">*</span>}
                 </label>
                 <input type={type} required={req} value={(form as Record<string,string>)[key]} onChange={e => set(key, e.target.value)}
@@ -1175,13 +1175,13 @@ function RSVPPage() {
 
           <FadeUp delay={300} distance={12}>
             <div className="border-b border-[#1a1a1a] py-6 flex flex-col sm:flex-row sm:items-start gap-3">
-              <label className="text-gray-600 text-[10px] uppercase tracking-[0.28em] sm:w-44 flex-shrink-0 pt-1">
+              <label className="text-gray-400 text-[10px] uppercase tracking-[0.28em] sm:w-44 flex-shrink-0 pt-1">
                 Nature of Enquiry <span className="text-[#4F7DFF]">*</span>
               </label>
               <div className="flex flex-wrap gap-2">
                 {QUERY_TYPES.map(qt => (
                   <button key={qt} type="button" onClick={() => set("queryType", qt)}
-                    className={`px-4 py-2 rounded-full text-[10px] uppercase tracking-[0.16em] border transition-all min-h-[44px] ${form.queryType === qt ? "border-[#4F7DFF] text-[#4F7DFF] bg-[#4F7DFF]/10" : "border-[#2a2a2a] text-gray-600 hover:border-[#3a3a3a] hover:text-gray-400"}`}>
+                    className={`px-4 py-2 rounded-full text-[10px] uppercase tracking-[0.16em] border transition-all min-h-[44px] ${form.queryType === qt ? "border-[#4F7DFF] text-[#4F7DFF] bg-[#4F7DFF]/10" : "border-[#2a2a2a] text-gray-400 hover:border-[#3a3a3a] hover:text-gray-200"}`}>
                     {qt}
                   </button>
                 ))}
@@ -1191,7 +1191,7 @@ function RSVPPage() {
 
           <FadeUp delay={360} distance={12}>
             <div className="border-b border-[#1a1a1a] py-6 flex flex-col sm:flex-row sm:items-start gap-3">
-              <label className="text-gray-600 text-[10px] uppercase tracking-[0.28em] sm:w-44 flex-shrink-0 pt-1">Message</label>
+              <label className="text-gray-400 text-[10px] uppercase tracking-[0.28em] sm:w-44 flex-shrink-0 pt-1">Message</label>
               <textarea value={form.message} onChange={e => set("message", e.target.value)} rows={4}
                 placeholder="Anything you'd like us to know..."
                 className="flex-1 bg-transparent text-white placeholder-gray-700 text-sm outline-none resize-none" />
@@ -1200,7 +1200,7 @@ function RSVPPage() {
 
           <FadeUp delay={420}>
             <div className="pt-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-              <p className="text-gray-600 text-xs leading-relaxed max-w-xs">
+              <p className="text-gray-400 text-xs leading-relaxed max-w-xs">
                 The SOVA team will be in touch within 48 hours.
               </p>
               <button type="submit" className="flex-shrink-0 flex items-center gap-3 px-8 py-4 rounded-full font-bold text-sm uppercase tracking-[0.15em] text-white group hover:opacity-90 transition-opacity" style={{ background: GRAD }}>
