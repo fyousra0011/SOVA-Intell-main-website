@@ -8,6 +8,7 @@ import waynePic from "@/imports/wayne.jpeg";
 import sovaImg1 from "@/imports/image-1.png";
 import sovaImg2 from "@/imports/image-2.png";
 import sovaImg3 from "@/imports/image-3.png";
+import heroClip from "@/imports/clips.mp4";
 import {
   Menu, X, ArrowRight, Linkedin, Instagram, Facebook, Twitter,
   Brain, Zap, BarChart3,
@@ -638,6 +639,11 @@ function HomePage({ go }: { go: (p: Page) => void }) {
               Learn More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
+        </div>
+        <div className="relative z-10 mt-14">
+          <video autoPlay loop muted playsInline className="w-full h-[60vh] md:h-[80vh] object-cover">
+            <source src={heroClip} type="video/mp4" />
+          </video>
         </div>
         <div className="relative z-10 mt-20"><Ticker /></div>
       </section>
