@@ -13,10 +13,10 @@ import {
   Menu, X, ArrowRight, Linkedin, Instagram, Facebook, Twitter,
   Brain, Zap, BarChart3,
   Globe, CheckCircle, ChevronRight,
-  Send, Shield, Cpu, Ruler,
+  Send, Shield, Cpu, Ruler, ExternalLink,
 } from "lucide-react";
 
-type Page = "home" | "about" | "services" | "rsvp";
+type Page = "home" | "about" | "services" | "products" | "rsvp";
 
 const DISPLAY = "'Barlow Condensed', sans-serif";
 const BODY    = "'DM Sans', sans-serif";
@@ -489,7 +489,7 @@ function Navbar({ page, go }: { page: Page; go: (p: Page) => void }) {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const links: [string, Page][] = [["About","about"],["Services","services"]];
+  const links: [string, Page][] = [["About","about"],["Services","services"],["Products","products"]];
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0a0a0a]/92 backdrop-blur-md border-b border-[#1a1a1a]" : ""}`}>
@@ -540,7 +540,7 @@ function Footer({ go }: { go: (p: Page) => void }) {
           <div>
             <p className="text-[10px] uppercase tracking-[0.32em] text-gray-500 mb-5">Navigate</p>
             <div className="flex flex-col gap-3">
-              {([['Home', 'home'], ['About', 'about'], ['Services', 'services'], ['Contact', 'rsvp']] as [string, Page][]).map(([l, p]) => (
+              {([['Home', 'home'], ['About', 'about'], ['Services', 'services'], ['Products', 'products'], ['Contact', 'rsvp']] as [string, Page][]).map(([l, p]) => (
                 <button key={p} onClick={() => go(p)} className="text-sm text-gray-400 hover:text-white transition-colors text-left" style={{ fontFamily: BODY }}>{l}</button>
               ))}
             </div>
@@ -1121,6 +1121,68 @@ function ServicesPage({ go }: { go: (p: Page) => void }) {
 }
 
 // ══════════════════════════════════════════════════════════════
+// PRODUCTS PAGE
+// ══════════════════════════════════════════════════════════════
+const PRODUCTS = [
+  { name: "i-COSEC", tagline: "Intelligent SOVA", desc: "PLACEHOLDER — need a one-line description from the team.", url: "https://i-cosec.ai.studio" },
+  { name: "Gauge AI", tagline: "Intelligent SOVA", desc: "PLACEHOLDER — need a one-line description from the team.", url: "https://gauge-ai.ai.studio" },
+  { name: "Anchor Time", tagline: "Intelligent SOVA", desc: "Operational decision-making platform for commercial dive supervisors and ROV inspection teams in Singapore waters, featuring live tidal current windows, ETA & standby delay calculator, dual-mode scanner, and instant reporting.", url: "https://anchor-time.ai.studio" },
+  { name: "E-Sanctuary", tagline: "Intelligent SOVA", desc: "High-end digital concierge, strategic alignment workspace, and automated HRDC compliance reporting tool for 5-pax executive offsite leadership retreats.", url: "https://e-sanctuary.ai.studio" },
+  { name: "Ibu Pintar", tagline: "Intelligent SOVA", desc: "PLACEHOLDER — need a one-line description from the team.", url: "https://ibupintar.ai.studio" },
+];
+
+function ProductsPage({ go }: { go: (p: Page) => void }) {
+  return (
+    <div className="bg-[#0a0a0a] pt-16" style={{ fontFamily: BODY }}>
+      <section className="py-24 md:py-36 px-6 md:px-16 border-b border-[#1a1a1a]">
+        <div className="max-w-7xl mx-auto">
+          <FadeUp><Label>Our Products</Label></FadeUp>
+          <TextBlockReveal blockColor="#2d2d2d" duration={1000} className="mb-6">
+            <h1 className="mobile-page-title font-black text-white leading-[0.92]" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 8.1)", lineHeight: 0.92 }}>
+              Intelligent SOVA,<br />
+              <span style={{ background: GRAD, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>built for the job.</span>
+            </h1>
+          </TextBlockReveal>
+          <FadeUp delay={150}><p className="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed">Purpose-built applications bringing SOVA's applied-AI approach to specific operational challenges.</p></FadeUp>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 px-6 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {PRODUCTS.map(({ name, tagline, desc, url }, i) => (
+              <FadeUp key={name} delay={i * 100} distance={18}>
+                <div className="bg-[#111111] border border-[#1e1e1e] rounded-xl p-8 h-full flex flex-col">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-3">{tagline}</div>
+                  <h3 className="font-black text-white mb-4" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 1.875)" }}>{name}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">{desc}</p>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="inline-flex items-center gap-2 self-start px-6 py-3 rounded-full font-bold text-xs uppercase tracking-[0.16em] text-white hover:opacity-90 transition-opacity"
+                    style={{ background: GRAD }}
+                  >
+                    Visit {name} <ExternalLink size={14} />
+                  </a>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 md:px-16 border-t border-[#1a1a1a]">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8">
+          <FadeUp><h2 className="font-black text-white" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 2.75)" }}>Have a problem these don't solve yet?</h2></FadeUp>
+          <FadeUp delay={150}><button onClick={() => go("rsvp")} className="flex-shrink-0 px-8 py-4 rounded-full font-bold text-sm uppercase tracking-[0.14em] text-white hover:opacity-90 transition-opacity" style={{ background: GRAD }}>Get in Touch</button></FadeUp>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════
 // CONTACT / RSVP PAGE
 // ══════════════════════════════════════════════════════════════
 const QUERY_TYPES = [
@@ -1380,6 +1442,7 @@ export default function App() {
         {page === "home"     && <HomePage     go={go} />}
         {page === "about"    && <AboutPage    go={go} />}
         {page === "services" && <ServicesPage go={go} />}
+        {page === "products" && <ProductsPage go={go} />}
         {page === "rsvp"     && <RSVPPage />}
         <Footer go={go} />
       </div>
