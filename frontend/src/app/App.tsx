@@ -1247,7 +1247,23 @@ function RSVPPage() {
   const [form, setForm]           = useState({ name:"", org:"", title:"", email:"", phone:"", queryType:"", message:"" });
   const [submitted, setSubmitted] = useState(false);
   const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: v }));
-  const handleSubmit = (e: FormEvent) => { e.preventDefault(); setSubmitted(true); };
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    const subject = `New Enquiry${form.queryType ? `: ${form.queryType}` : ""} — ${form.name || "Website Contact Form"}`;
+    const body = [
+      `Name: ${form.name}`,
+      `Organisation: ${form.org}`,
+      `Job Title: ${form.title}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone || "—"}`,
+      `Nature of Enquiry: ${form.queryType || "—"}`,
+      "",
+      "Message:",
+      form.message || "—",
+    ].join("\n");
+    window.location.href = `mailto:fadillah@sovaintell.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSubmitted(true);
+  };
 
   if (submitted) {
     return (
