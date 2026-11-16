@@ -9,11 +9,11 @@ import sovaImg1 from "@/imports/image-1.png";
 import sovaImg2 from "@/imports/image-2.png";
 import sovaImg3 from "@/imports/image-3.png";
 import heroClip from "@/imports/clips.mp4";
-import screenshotICosec from "@/imports/product-i-cosec.jpg";
-import screenshotGaugeAi from "@/imports/product-gauge-ai.jpg";
-import screenshotAnchorTime from "@/imports/product-anchor-time.jpg";
-import screenshotESanctuary from "@/imports/product-e-sanctuary.jpg";
-import screenshotIbuPintar from "@/imports/product-ibu-pintar.jpg";
+import screenshotICosec from "@/imports/product-i-cosec.png";
+import screenshotGaugeAi from "@/imports/product-gauge-ai.png";
+import screenshotAnchorTime from "@/imports/product-anchor-time.png";
+import screenshotESanctuary from "@/imports/product-e-sanctuary.png";
+import screenshotIbuPintar from "@/imports/product-ibu-pintar.png";
 import {
   Menu, X, ArrowRight, Linkedin, Instagram, Facebook, Twitter,
   Brain, Zap, BarChart3,
@@ -1171,12 +1171,80 @@ function ServicesPage({ go }: { go: (p: Page) => void }) {
 // ══════════════════════════════════════════════════════════════
 // PRODUCTS PAGE
 // ══════════════════════════════════════════════════════════════
-const PRODUCTS: { name: string; tagline: string; desc: string; screenshot?: string }[] = [
-  { name: "i-COSEC", tagline: "Intelligent SOVA", desc: "PLACEHOLDER — need a one-line description from the team.", screenshot: screenshotICosec },
-  { name: "Gauge AI", tagline: "Intelligent SOVA", desc: "PLACEHOLDER — need a one-line description from the team.", screenshot: screenshotGaugeAi },
-  { name: "Anchor Time", tagline: "Intelligent SOVA", desc: "Operational decision-making platform for commercial dive supervisors and ROV inspection teams in Singapore waters, featuring live tidal current windows, ETA & standby delay calculator, dual-mode scanner, and instant reporting.", screenshot: screenshotAnchorTime },
-  { name: "E-Sanctuary", tagline: "Intelligent SOVA", desc: "High-end digital concierge, strategic alignment workspace, and automated HRDC compliance reporting tool for 5-pax executive offsite leadership retreats.", screenshot: screenshotESanctuary },
-  { name: "Ibu Pintar", tagline: "Intelligent SOVA", desc: "PLACEHOLDER — need a one-line description from the team.", screenshot: screenshotIbuPintar },
+const PRODUCTS: {
+  name: string;
+  tagline: string;
+  screenshot: string;
+  description: string;
+  features: { title: string; desc: string }[];
+  builtFor: string;
+}[] = [
+  {
+    name: "Anchor Time",
+    tagline: "Safe Diving Starts With The Right Window",
+    screenshot: screenshotAnchorTime,
+    description: "ANCHOR TIME is a field-ready decision support system for marine operations, built for Supervisors, Dive Teams, and Shipowners operating in Eastern Anchorage. Commercial diving is high-risk when the current is wrong — ANCHOR TIME removes the guesswork by fusing live environmental telemetry, vessel data, and compliance standards into one simple, tactile dashboard, designed for use on deck.",
+    features: [
+      { title: "Real-Time Go / No-Go Status", desc: "Instant traffic-light status for the anchorage — e.g. GREEN (Safe for Divers & ROV), current 0.95 kt, bearing 76° (Flood ENE). Clear, defensible, and compliant with IMCA D014 & SS511 standards." },
+      { title: "Operational Dive Window", desc: "Automatically calculates the active safe slack window, so supervisors can plan the dive, standby, and recovery around the exact window — not an estimate." },
+      { title: "Environmental Telemetry — 24h Curve", desc: "Live, synced tide height, underwater visibility, water temperature, and surface swell data over 4G LTE, with 100% sync status." },
+      { title: "Active Vessel On Berth", desc: "Full vessel profile at a glance — IMO, type, dimensions, class, and fouling rating — ideal for planning hull cleaning, inspection scope, and ETA." },
+      { title: "Supervisor Operations Hub", desc: "One-tap navigation to the ETA & Standby Calculator, Dual-Mode Scanner (Drydock / ROV), and One-Click Shipowner Report (PDF)." },
+    ],
+    builtFor: "Dive Supervisors, Marine Operations Managers, Port Authorities, Shipowners, and ROV Teams who need a fast, compliant, and auditable decision before anyone enters the water.",
+  },
+  {
+    name: "i-CoSec AI",
+    tagline: "The Future of Company Secretarial Work in Malaysia",
+    screenshot: screenshotICosec,
+    description: "I-CoSec AI is SOVA's proprietary AI system built specifically for Malaysian corporate secretarial practice. Unlike generic AI tools, I-CoSec AI does not guess — it is grounded in a verified vector index of the Malaysian Companies Act 2016 (Act 777), AMLA 2001, and PDPA 2010, and every generation is backed by a live, immutable audit trail.",
+    features: [
+      { title: "Client Request Portal", desc: "A streamlined intake for statutory instructions. Select a preset scenario — opening a foreign currency account, appointing directors, changing registered office — or type a custom instruction, and the system auto-fills, drafts, and structures the document for you." },
+      { title: "Auditor & Governance Trace", desc: "Every document comes with a real-time statutory audit trace — see exactly which sections were retrieved and how compliance was verified. No black box, full transparency." },
+      { title: "Generated Statutory Output", desc: "Each output includes the full Resolution, Letterhead, Reasoning, and Citations, with a unique reference ID, marked \"Statutory Compliance Verified\" before circulation." },
+      { title: "Selective Executive Switcher", desc: "Switch securely between roles — Company Secretary, Director, or Compliance Auditor — with role-based access and workspace security." },
+      { title: "Zero-Retention Sovereign Storage", desc: "Built for confidentiality: Zero Central Retention and Zero Holding storage on a local on-premise server. Your data stays with you." },
+    ],
+    builtFor: "Company Secretaries, Directors, Compliance Auditors, and SMEs who need fast, accurate, and legally grounded secretarial documents — without the risk of generic AI hallucinations.",
+  },
+  {
+    name: "Gauge AI",
+    tagline: "From Manual Gauging to AI-Verified Classification",
+    screenshot: screenshotGaugeAi,
+    description: "GaugeAI is the ultrasonic terminal for modern drydocking. Every drydock survey depends on one thing: accurate plate thickness. If a plate is wasted beyond limit, it must be renewed — if the reading is wrong, the vessel is either at risk, or the owner pays for steel that didn't need replacing. GaugeAI removes that risk.",
+    features: [
+      { title: "Launch AI Camera Scanner", desc: "One tap opens AI capture mode. The surveyor points the camera at the ultrasonic gauge display — GaugeAI reads the thickness, validates it, and classifies the wastage instantly. No manual transcription, no typing errors." },
+      { title: "Active Survey Directory", desc: "All live surveys listed in one place, each linked to its blueprint, so every reading maps to the correct plate location, frame, and strake from the moment it's captured." },
+      { title: "IACS 531 Verified", desc: "Every classification is checked against IACS 531 standards for ultrasonic gauging and wastage assessment — output is class-ready, suitable for submission to Class, shipowner, and yard." },
+    ],
+    builtFor: "Marine Surveyors, Drydock Managers, Class Surveyors, Shipowners, and Superintendents who need fast, accurate, and auditable gauging data.",
+  },
+  {
+    name: "E-Sanctuary",
+    tagline: "From Retreat Planning to HRD Corp Claim, In One System",
+    screenshot: screenshotESanctuary,
+    description: "Corporate retreats are complex — transport, itinerary, accreditation, attendance, and HRD Corp filing all have to line up perfectly, or the claim gets rejected. E-Sanctuary removes that complexity with one console for the whole retreat lifecycle. No spreadsheets. No manual attendance sheets. No claim delays.",
+    features: [
+      { title: "3D2N Itinerary Management", desc: "Modify day-by-day retreat schedules, logistics, and session timing in real time, with updates reflecting live on participant concierges." },
+      { title: "VIP & Transit Coordination", desc: "Coordinate executive packages and transit logistics for every participant, from corporate HQ transfers to on-site facilitation." },
+      { title: "GPS Geofenced Attendance", desc: "Verify attendance records automatically against accredited session hours, with no manual sign-in sheets." },
+      { title: "Batch HRD Corp Claims", desc: "Generate compliant batch claim dossiers, pre-approved and ready for submission." },
+    ],
+    builtFor: "Retreat Coordinators, HR Compliance Teams, and Executive Offsite Organisers who need proof-ready, HRD Corp-compliant retreat administration.",
+  },
+  {
+    name: "IbuPintar Pro",
+    tagline: "Because Being A Mom Is A Full-Time Operation",
+    screenshot: screenshotIbuPintar,
+    description: "IbuPintar Pro was built for one person: the mom who does everything. She is a VP in the boardroom at 9am, and the pickup coordinator at 5pm — managing shifts, school memos, uniforms, snacks, drivers, and a transit coordinator, all from WhatsApp and memory. Until now.",
+    features: [
+      { title: "Shift Conflict Overlap Detection", desc: "Watches your work calendar and your children's school schedules together, flagging clashes days earlier with a clear action — WhatsApp or Ticket." },
+      { title: "Registered Children", desc: "Manage up to 6 children, each with their own school, grade, transit, and notes — exam seminars, sports attire, and more — updated in seconds." },
+      { title: "Action & Page Tickets", desc: "Four tools, one tap away: Zero-Entry OCR Scanner for teacher memos, WhatsApp Dispatch for 1-click caregiver handovers, Master Timeline to sync work and school schedules, and Night Prep checklists." },
+      { title: "Built For Real Malaysian Family Life", desc: "Multiple schools, multiple shifts, one mom — with a Family Transit Coordinator keeping the driver or helper in the loop." },
+    ],
+    builtFor: "Working Moms, C-Suite Moms, Single Moms, and any mom managing work, school, and family logistics without a PA.",
+  },
 ];
 
 function ProductsPage({ go }: { go: (p: Page) => void }) {
@@ -1195,35 +1263,58 @@ function ProductsPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {PRODUCTS.map(({ name, tagline, desc, screenshot }, i) => (
-              <FadeUp key={name} delay={i * 100} distance={18}>
-                <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden h-full flex flex-col">
-                  {screenshot && (
-                    <div className="w-full h-64 bg-[var(--bg-page)] border-b border-[var(--border)] flex items-center justify-center overflow-hidden">
-                      <img src={screenshot} alt={`${name} app screenshot`} className="h-full w-auto object-contain" />
-                    </div>
-                  )}
-                  <div className="p-8 flex flex-col flex-1">
-                    <div className="text-[10px] uppercase tracking-[0.3em] text-[var(--text-secondary)] mb-3">{tagline}</div>
-                    <h3 className="font-black text-[var(--text-primary)] mb-4" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 1.875)" }}>{name}</h3>
-                    <p className="text-[var(--text-tertiary)] text-sm leading-relaxed mb-6 flex-1">{desc}</p>
-                    <a
-                      href={`mailto:fadillah@sovaintell.com?subject=${encodeURIComponent(`Demo Request: ${name}`)}`}
-                      className="inline-flex items-center gap-2 self-start px-6 py-3 rounded-full font-bold text-xs uppercase tracking-[0.16em] text-white hover:opacity-90 transition-opacity"
-                      style={{ background: GRAD }}
-                    >
-                      Contact Us for Demo <ExternalLink size={14} />
-                    </a>
-                  </div>
-                </div>
+      {PRODUCTS.map(({ name, tagline, screenshot, description, features, builtFor }, i) => (
+        <section key={name} className={`py-20 md:py-28 px-6 md:px-16 ${i < PRODUCTS.length - 1 ? "border-b border-[var(--border)]" : ""}`}>
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-start justify-between gap-6 mb-10">
+              <div>
+                <FadeUp><Label>{tagline}</Label></FadeUp>
+                <FadeUp delay={80}>
+                  <h2 className="font-black text-[var(--text-primary)] mt-2" style={{ fontFamily: DISPLAY, fontSize: "calc(var(--sf) * 3.5)" }}>{name}</h2>
+                </FadeUp>
+              </div>
+              <FadeUp delay={150}>
+                <a
+                  href={`mailto:fadillah@sovaintell.com?subject=${encodeURIComponent(`Demo Request: ${name}`)}`}
+                  className="inline-flex items-center gap-2 flex-shrink-0 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-[0.16em] text-white hover:opacity-90 transition-opacity"
+                  style={{ background: GRAD }}
+                >
+                  Contact Us for Demo <ExternalLink size={14} />
+                </a>
               </FadeUp>
-            ))}
+            </div>
+
+            <FadeUp delay={100} distance={18}>
+              <div className="w-full rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--bg-card)] mb-10">
+                <img src={screenshot} alt={`${name} app screenshot`} className="w-full h-auto" />
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={150}>
+              <p className="text-[var(--text-secondary)] text-sm md:text-base leading-relaxed max-w-3xl mb-10">{description}</p>
+            </FadeUp>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+              {features.map(({ title, desc }, fi) => (
+                <FadeUp key={title} delay={180 + fi * 60} distance={14}>
+                  <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-lg p-6 h-full">
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-[#4F7DFF] mb-2">{String(fi + 1).padStart(2, "0")}</div>
+                    <h3 className="font-bold text-[var(--text-primary)] text-sm mb-2">{title}</h3>
+                    <p className="text-[var(--text-tertiary)] text-xs leading-relaxed">{desc}</p>
+                  </div>
+                </FadeUp>
+              ))}
+            </div>
+
+            <FadeUp delay={240}>
+              <p className="text-[var(--text-tertiary)] text-xs leading-relaxed max-w-2xl">
+                <span className="text-[var(--text-secondary)] uppercase tracking-[0.2em] text-[10px] mr-2">Built for</span>
+                {builtFor}
+              </p>
+            </FadeUp>
           </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       <section className="py-24 px-6 md:px-16 border-t border-[var(--border)]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8">
