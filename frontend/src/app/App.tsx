@@ -1175,6 +1175,7 @@ const PRODUCTS: {
   name: string;
   tagline: string;
   screenshot: string;
+  framedScreenshot?: boolean;
   description: string;
   features: { title: string; desc: string }[];
   builtFor: string;
@@ -1211,6 +1212,7 @@ const PRODUCTS: {
     name: "Gauge AI",
     tagline: "From Manual Gauging to AI-Verified Classification",
     screenshot: screenshotGaugeAi,
+    framedScreenshot: true,
     description: "GaugeAI is the ultrasonic terminal for modern drydocking. Every drydock survey depends on one thing: accurate plate thickness. If a plate is wasted beyond limit, it must be renewed — if the reading is wrong, the vessel is either at risk, or the owner pays for steel that didn't need replacing. GaugeAI removes that risk.",
     features: [
       { title: "Launch AI Camera Scanner", desc: "One tap opens AI capture mode. The surveyor points the camera at the ultrasonic gauge display — GaugeAI reads the thickness, validates it, and classifies the wastage instantly. No manual transcription, no typing errors." },
@@ -1263,7 +1265,7 @@ function ProductsPage({ go }: { go: (p: Page) => void }) {
         </div>
       </section>
 
-      {PRODUCTS.map(({ name, tagline, screenshot, description, features, builtFor }, i) => (
+      {PRODUCTS.map(({ name, tagline, screenshot, framedScreenshot, description, features, builtFor }, i) => (
         <section key={name} className={`py-20 md:py-28 px-6 md:px-16 ${i < PRODUCTS.length - 1 ? "border-b border-[var(--border)]" : ""}`}>
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row items-start justify-between gap-6 mb-10">
@@ -1285,9 +1287,17 @@ function ProductsPage({ go }: { go: (p: Page) => void }) {
             </div>
 
             <FadeUp delay={100} distance={18}>
-              <div className="w-full rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--bg-card)] mb-10">
-                <img src={screenshot} alt={`${name} app screenshot`} className="w-full h-auto" />
-              </div>
+              {framedScreenshot ? (
+                <div className="w-full flex justify-center mb-10">
+                  <div className="w-full max-w-[380px] overflow-hidden rounded-[52px] bg-[var(--bg-page)]">
+                    <img src={screenshot} alt={`${name} app screenshot`} className="w-full h-auto block" />
+                  </div>
+                </div>
+              ) : (
+                <div className="w-full rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--bg-card)] mb-10">
+                  <img src={screenshot} alt={`${name} app screenshot`} className="w-full h-auto" />
+                </div>
+              )}
             </FadeUp>
 
             <FadeUp delay={150}>
